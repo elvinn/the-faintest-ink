@@ -1,0 +1,27 @@
+{
+  "name": "the-faintest-ink",
+  "version": "1.0.0",
+  "description": "The faintest ink is more powerful than the strongest memory",
+  "main": "README.md",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "keywords": [
+    "note"
+  ],
+  "author": "elvin.pjw@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elvinn/the-faintest-ink.git"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.5.2",
+    "@vuepress/plugin-container": "^1.0.0-alpha.41",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
+    "@vuepress/theme-default": "^1.5.2",
+    "dayjs": "^1.8.28",
+    "vuepress": "^1.5.2"
+  }
+}
