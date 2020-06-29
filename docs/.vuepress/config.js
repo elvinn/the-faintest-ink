@@ -12,7 +12,42 @@ module.exports = {
       lang: "zh-CN",
     },
   },
-  lastUpdated: "上次更新",
+  markdown: {
+    lineNumbers: true
+  },
+  themeConfig: {
+    displayAllHeaders: true,
+    lastUpdated: "上次更新",
+    repo: 'https://github.com/elvinn/the-faintest-ink',
+    repoLabel: 'Github',
+    docsDir: 'docs',
+    editLinks: true,
+    editLinkText: '编辑此页',
+    nav: [
+      {
+        text: '首页',
+        link: '/',
+      },
+      {
+        text: '大前端',
+        items: [
+          {
+            text: 'Vue',
+            link: '/vue/',
+          },
+          {
+            text: 'TypeScript',
+            link: '/typescript/',
+          },
+        ],
+      },
+      {
+        text: 'C++',
+        link: '/cpp',
+      },
+    ],
+    sidebar: 'auto',
+  },
   plugins: {
     "@vuepress/active-header-links": true,
     "@vuepress/medium-zoom": true,
