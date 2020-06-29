@@ -43,8 +43,12 @@ module.exports = {
       },
       {
         text: 'C++',
-        link: '/cpp',
+        link: '/cpp/',
       },
+      {
+        text: 'leetcode',
+        link: '/leetcode/'
+      }
     ],
     sidebar: 'auto',
   },
