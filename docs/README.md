@@ -10,3 +10,4 @@ footer: MIT Licensed | Copyright © 2018-present elvinn
 
 1. [VuePress](https://github.com/vuejs/vuepress)
 2. [rawpixel.com / Freepik](https://www.freepik.com)
+3. [腾讯云 - 云开发 CloudBase](https://www.cloudbase.net/)
