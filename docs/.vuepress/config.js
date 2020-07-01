@@ -1,15 +1,16 @@
-const dayjs = require("dayjs");
+const dayjs = require('dayjs');
 
-dayjs.locale("zh-cn");
+dayjs.locale('zh-cn');
 
 module.exports = {
-  title: "烂笔头",
-  description: "好记性不如烂笔头",
-  base: "/the-faintest-ink/",
-  theme: "@vuepress/default",
+  title: '烂笔头',
+  description: '好记性不如烂笔头',
+  base: '/notes/',
+  dest: 'dist',
+  theme: '@vuepress/default',
   locales: {
-    "/": {
-      lang: "zh-CN",
+    '/': {
+      lang: 'zh-CN',
     },
   },
   markdown: {
@@ -17,7 +18,7 @@ module.exports = {
   },
   themeConfig: {
     displayAllHeaders: true,
-    lastUpdated: "上次更新",
+    lastUpdated: '上次更新',
     repo: 'https://github.com/elvinn/the-faintest-ink',
     repoLabel: 'Github',
     docsDir: 'docs',
@@ -53,12 +54,15 @@ module.exports = {
     sidebar: 'auto',
   },
   plugins: {
-    "@vuepress/active-header-links": true,
-    "@vuepress/medium-zoom": true,
-    "@vuepress/last-updated": {
+    '@vuepress/active-header-links': true,
+    '@vuepress/medium-zoom': true,
+    '@vuepress/last-updated': {
       transformer: (timestamp) => {
-        return dayjs(timestamp).format("YYYY-MM-DD HH:mm:ss");
+        return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss');
       },
     },
   },
+  head: [
+    ['script', {}, `var isProd = location.hostname !== 'localhost'; if (isProd && location.protocol === 'http:') { location.protocol = "https:"; }`]
+  ]
 };

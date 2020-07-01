@@ -5,7 +5,8 @@
   "main": "README.md",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "rm -rf ./**/.DS_Store && cloudbase hosting:deploy dist /notes -e elvinn-1aa07a"
   },
   "keywords": [
     "note"
@@ -17,6 +18,7 @@
     "url": "git+https://github.com/elvinn/the-faintest-ink.git"
   },
   "devDependencies": {
+    "@cloudbase/cli": "^0.8.1",
     "@vuepress/plugin-active-header-links": "^1.5.2",
     "@vuepress/plugin-container": "^1.0.0-alpha.41",
     "@vuepress/plugin-medium-zoom": "^1.5.2",
