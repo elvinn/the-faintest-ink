@@ -1,0 +1,28 @@
+name: Deploy Website
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup
+        run: npm ci
+
+      - name: Login at Tencent Cloudbase
+        env:
+          apiKeyId: ${{secrets.TCB_API_KEY_ID}}
+          apiKey: ${{secrets.TCB_API_KEY}}
+        run: $(npm bin)/tcb login --apiKeyId "$apiKeyId" --apiKey "$apiKey"
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Tencent Cloudbase
+        run: npm run deploy
+
