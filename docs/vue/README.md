@@ -1,51 +1,95 @@
-# 常见实践总结
+# 基本使用
 
-## 在 template 中使用常量
+[Vue](https://vuejs.org/) 是一个渐进式的 JS 框架，虽然平时工作中使用不多，但是我会通过它快速地启动一些个人项目，主要是因为它配置简单，方便上手，可用于最小可行性验证。
 
-在视图层，我们经常需要根据不同的状态进行不同的展示，例如加载中、加载成功、加载失败对应不同的展示。比较好的实践是将这些状态抽取成常量进行统一维护，那在 template 中该如何使用的这些常量实现如下的效果呢？
+## [slot 插槽](https://cn.vuejs.org/v2/guide/components-slots.html)
+
+`slot` 的概念来源于 Web Component，类似于 React 当中的 `render props`，从而形成一种多态的效果，实现代码的复用。
+
+例如存在一个 `<submit-button>` 组件：
 
 ``` vue
-<div v-if="loginState === LOGIN_STATE.LOADING">正在登陆中...</div>
-<div v-else-if="loginState === LOGIN_STATE.FAILED">登录失败，请稍后重试</div>
-<div v-else-if="loginState === LOGIN_STATE.SUCCESS">登录成功</div>
+<button type="submit">
+  <slot>Submit</slot>
+</button>
 ```
 
-由于 template 中只能获取到组件实例上的数据，所以需要将常量绑定在组件实例上，具体可以通过下面两种方式来绑定。
+那么既可以不提供内容展示默认的 Submit，也可以传入文本进行覆盖：
 
-### 通过 data 绑定（不推荐）
+```vue
+<!-- 展示 Submit -->
+<submit-button /> 
 
-简单的方式就是将常量直接当作普通的 data 变量来使用：
-
-``` vue {9-11}
-<script>
-const LOGIN_STATE = {
-  LOADING: 0,
-  FAILED: -1,
-  SUCCESS: 1,
-}
-
-export default {
-  data () {
-    this.LOGIN_STATE = LOGIN_STATE
-  }
-  // ...
-}
-</script>
+<!-- 展示 Save -->
+<submit-button>Save</submit-button>
 ```
 
-这种方式虽然能够解决问题，但是 Vue 会将 data 中绑定的数据通过 getter/setter （Vue 2）或者 Proxy（Vue 3）变成响应式的，实际上我们并不需要这些常量是响应式的。
+### 具名插槽
 
-### 通过 created 生命周期绑定（推荐）
+当需要多个 slot 的时候，得通过不同的名称进行区分。
 
-在 `created` 生命周期中执行也可以将数据绑定在组件实例上。并且因为 `created` 执行的时候，组件的响应式绑定阶段已经结束了，从而避免了在 `data` 中直接绑定带来的问题。
+例如刚刚的 `<submit-button />` 需要进行升级，让其除了能让外部传入文本之外，还支持传入图标，那么可以进行如下变更：
 
-``` vue {3-5}
-<script>
-export default {
-  created () {
-    this.LOGIN_STATE = LOGIN_STATE
-  }
-  // ...
-}
-</script>
+``` vue
+<button type="submit">
+  <slot name="icon"></slot>
+  <slot>Submit</slot>
+</button>
+```
+
+使用的时候，通过在 `<template>` 元素上使用 `v-slot` 指令指定相应的名称：
+
+``` vue {3}
+<!-- 传入文案的同时，传入 icon -->
+<submit-button>
+  <template v-slot:icon>
+    <icon type="file" />
+  </template>
+  Save
+</submit-button>
+```
+
+::: tip
+1. 默认的 slot 其实也有名字，为 `default` 。
+2. `v-slot="icon"` 可以简写为 `#icon`
+:::
+
+::: warning
+在 2.6.0 版本以前，可以使用 `slot="name"` 的方式来使用具名插槽， 不过已经被 `v-slot:name` 替代，并将在 3.0 版本中移除老写法的支持。
+:::
+
+### 作用域插槽
+
+由于父级模板里的所有内容都是在父级作用域中编译的，子模板里的所有内容都是在子作用域中编译的，所以默认情况下，作为 slot 的元素只能获取到父组件中的数据，无法访问到子组件中的数据。
+
+不过有时让 slot 元素能够访问子组件中才有的数据是很有用的，这种时候就可以通过作用域插槽来实现。
+
+设想一个带有如下模板的 `<current-user>` 组件，可以将子组件中的数据作为 `<slot>` 元素的一个属性绑定上去：
+
+``` vue {2}
+<span>
+  <slot v-bind:user="user">
+    {{ user.lastName }}
+  </slot>
+</span>
+```
+
+现在就可以在父组件中的，通过作用域插槽访问到子组件的数据：
+
+``` vue {2,8,13}
+<current-user>
+  <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
+</current-user>
+
+<!-- 只有默认插槽的时候，可以不使用 template -->
+<current-user v-slot:default="slotProps">
+  {{ slotProps.user.firstName }}
+</current-user>
+
+ <!-- 利用解构，进一步精简代码 -->
+<current-user v-slot="{ user = { firstName: 'Guest' } }">
+  {{ user.firstName }}
+</current-user>
 ```

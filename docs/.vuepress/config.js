@@ -24,6 +24,7 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     editLinkText: '编辑此页',
+    sidebarDepth: 2,
     nav: [
       {
         text: '首页',
@@ -51,7 +52,21 @@ module.exports = {
         link: '/leetcode/'
       }
     ],
-    sidebar: 'auto',
+    sidebar: {
+      '/vue/': [
+        '',
+        'situation',
+      ],
+      'typescript/': [
+        '',
+      ],
+      '/cpp/': [
+        '',
+      ],
+      '/leetcode/': [
+        '',
+      ],
+    },
   },
   plugins: {
     '@vuepress/active-header-links': true,
