@@ -23,7 +23,6 @@
     "@vuepress/plugin-container": "^1.0.0-alpha.41",
     "@vuepress/plugin-medium-zoom": "^1.5.2",
     "@vuepress/theme-default": "^1.5.2",
-    "dayjs": "^1.8.28",
     "vuepress": "^1.5.2"
   }
 }

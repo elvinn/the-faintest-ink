@@ -1,7 +1,3 @@
-const dayjs = require('dayjs');
-
-dayjs.locale('zh-cn');
-
 module.exports = {
   title: '烂笔头',
   description: '好记性不如烂笔头',
@@ -73,8 +69,12 @@ module.exports = {
     '@vuepress/medium-zoom': true,
     '@vuepress/last-updated': {
       transformer: (timestamp) => {
-        return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss');
-      },
+        return new Date(timestamp)
+          .toLocaleString('zh-CN', {
+            timeZone: 'Asia/Shanghai',
+            hour12: false,
+          })
+      }
     },
   },
   head: [
