@@ -27,3 +27,23 @@ for (let i = 0; i < 3; i++) {
   }
 }
 ```
+
+## 快慢指针
+
+快慢指针指在数组或者链表中，以不同的速度移动两个指针（一般是两倍的速度）。这种方法也叫 Tortoise and Hare Algorithm（龟兔赛跑算法），非常的形象。
+
+这种方法常用来解决两种类型的问题：
+
+1. 判断是否存在环路（快慢指针相遇则说明存在环路）
+2. 判断是否存在环路，并给出环路开始的节点（先让快慢指针相遇，然后再让慢指针回到起点，快指针速度变得和慢指针一样）
+
+![快慢指针](./public/tortoise-and-hare-algorithm.jpg)
+
+
+通常而言，能利用快慢指针算法解决的问题复杂度都很低，时间复杂度为 O(n)，空间复杂度为 O(1)。
+
+相关题目：
+
+1. [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+2. [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+3. [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
