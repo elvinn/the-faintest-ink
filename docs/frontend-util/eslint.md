@@ -1,5 +1,41 @@
 # ESLint
 
+## 编写自己的 plugin
+
+有幸于社区的蓬勃发展，大部分情况下我们需要使用的代码规范都可以直接引用他人编写的 npm 包，不过有时候我们想要一些定制化的能力，所以仍需自己动手来编写一些自定义的规则。
+
+相关的文档和博客非常多，这里推荐几个不错的资料，就不具体、详细地展开了：
+
+1. [官方文档 - Working with Plugins](https://cn.eslint.org/docs/developer-guide/working-with-plugins)
+2. [【AST篇】教你如何动手写 Eslint 插件](https://juejin.im/post/5d91be23f265da5ba532a07e)
+3. [手摸手教你写个ESLint插件以及了解ESLint的运行原理](http://obkoro1.com/web_accumulate/accumulate/tool/ESLint%E6%8F%92%E4%BB%B6.html)
+
+ESLint 官方提供了很方便的脚手架，我们按照下面的流程即可编写、发布自己的 plugin：
+
+1. 通过 [yeoman-generator](https://www.npmjs.com/package/yeoman-generator) 和 [generator-eslint](https://www.npmjs.com/package/generator-eslint) 生成模版代码
+2. 通过 [在线 AST 解析 - astexplorer](http://astexplorer.net/) 进行实验，找到需要检查的语法信息
+3. 编写模板中 `rules` 目录下的文件，实现插件信息的配置、目标代码的校验、问题的自动修复等
+4. 编写模板中 `tests` 目录下的文件，进行测试验证
+5. 编写模版中 `docs` 目录下的文件，对规则进行说明
+5. 发布插件到 npm 上
+
+其中比较麻烦的就是第三步中插件信息的配置、目标代码的校验和问题的自动修复，这里通过编写一个插件，实现指定函数必须通过 return 语句来调用的规则进行举例说明，完整的代码可以看这里 [Github - eslint-plugin-call-func-with-return](https://github.com/elvinn/eslint-plugin-call-func-with-return)。
+
+最终效果是假设我们配置 `jsonRet` 函数必须通过 return 语句来调用，那么可以实现如下代码的检查：
+
+``` js
+function main() {
+    jsonRet({ author: 'elvinn' }); // error
+    return jsonRet({ author: 'elvin' }); // ok
+}
+```
+
+### 插件信息的配置
+
+### 目标代码的校验
+
+### 问题的自动修复
+
 ## plugins 和 extends 字段的区别
 
 在 `.eslintrc.js` 中，我们经常在 `plugins` 和 `extends` 两个地方来引用第三方的配置，那这两个部分有什么区别呢？
