@@ -31,12 +31,16 @@ module.exports = {
         items: [
           {
             text: 'Vue',
-            link: '/vue/',
+            link: '/vue/usage',
           },
           {
             text: 'TypeScript',
             link: '/typescript/',
           },
+          {
+            text: '工具',
+            link: '/frontend-util/eslint',
+          }
         ],
       },
       {
@@ -50,11 +54,14 @@ module.exports = {
     ],
     sidebar: {
       '/vue/': [
-        '',
+        'usage',
         'situation',
       ],
-      'typescript/': [
+      '/typescript/': [
         '',
+      ],
+      '/frontend-util/': [
+        'eslint',
       ],
       '/cpp/': [
         '',
