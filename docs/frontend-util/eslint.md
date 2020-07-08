@@ -6,7 +6,7 @@
 
 相关的文档和博客非常多，这里推荐几个不错的资料，就不具体、详细地展开了：
 
-1. [官方文档 - Working with Plugins](https://cn.eslint.org/docs/developer-guide/working-with-plugins)
+1. [官方文档 - Working with Plugins](https://eslint.org/docs/developer-guide/working-with-rules)
 2. [【AST篇】教你如何动手写 Eslint 插件](https://juejin.im/post/5d91be23f265da5ba532a07e)
 3. [手摸手教你写个ESLint插件以及了解ESLint的运行原理](http://obkoro1.com/web_accumulate/accumulate/tool/ESLint%E6%8F%92%E4%BB%B6.html)
 
@@ -32,9 +32,68 @@ function main() {
 
 ### 插件信息的配置
 
-### 目标代码的校验
+插件的信息配置在 `meta` 字段中，关键的有两个地方:
 
-### 问题的自动修复
+- `fixable`: `code` | `whitespace`，用来表示是修复代码还是仅修复空白字符问题。假如不配置这个字段的话，就算实现了自动修复的代码，也不会调用。
+- `schema`: 通过 JSON Schema 的形式，指定传给 rule 的参数格式，例如下方的配置表示传入一个字符串数组。
+
+``` js
+// meta 对象
+{
+  ...
+  fixable: 'code',
+  // the rule options schema
+  schema: [{
+    type: 'array',
+    items: { type: 'string' },
+    description: 'function name list'
+  }]
+}
+```
+
+### 目标代码的校验和修复
+
+代码的校验通过一个 `function create(context) { ... }` 的函数实现。
+
+该函数返回一个对象，`key` 为抽象语法树中需要检查的节点或者是节点选择器，例如：
+
+- `CallExpression:exit` 表示函数调用的节点，`:exit` 表示遍历语法树时，离开该节点的时候。
+- `IfStatement > BlockStatement` 表示有块级语句跟随的 If 条件语句。
+
+当 ESLint 解析到 `key` 所指定的节点时，就会调用相应的函数进行检查。若发现错误，则通过 `context.report({ ... })` 进行报错，主要关注参数中的两个字段：
+
+- `message`: 提示给用户的报错信息。
+- `fix`: autofix 时调用的函数，修复错误代码。
+
+``` js {8,17-23}
+function create(context) {
+  var functionNameList = context.options[0];
+  if (!functionNameList || !functionNameList.length) {
+    return;
+  }
+
+  return {
+    "CallExpression:exit": (node) => {
+      if (functionNameList.indexOf(node.callee.name) === -1) {
+        return;
+      }
+
+      if (node.parent.type === "ReturnStatement") {
+        return;
+      }
+
+      return context.report({
+        node,
+        message: node.callee.name + " should be called with return",
+        fix: function(fixer) {
+          return fixer.insertTextBefore(node, "return ");
+        }
+      });
+    },
+  };
+}
+
+```
 
 ## plugins 和 extends 字段的区别
 
