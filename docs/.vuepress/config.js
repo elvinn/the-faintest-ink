@@ -48,7 +48,7 @@ module.exports = {
         link: '/cpp/',
       },
       {
-        text: 'leetcode',
+        text: 'LeetCode',
         link: '/leetcode/'
       }
     ],
@@ -68,6 +68,7 @@ module.exports = {
       ],
       '/leetcode/': [
         '',
+        'interesting',
       ],
     },
   },
