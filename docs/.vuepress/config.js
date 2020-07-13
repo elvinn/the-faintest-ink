@@ -44,17 +44,26 @@ module.exports = {
         ],
       },
       {
-        text: 'C++',
-        link: '/cpp/',
+        text: '后台',
+        items: [
+          {
+            text: 'C++',
+            link: '/cpp/',
+          },
+          {
+            text: 'Linux',
+            link: '/linux/file-descriptor',
+          },
+          {
+            text: '常见场景',
+            link: '/backend-common-situation/lock'
+          }
+        ]
       },
       {
         text: 'LeetCode',
         link: '/leetcode/',
       },
-      {
-        text: 'Linux',
-        link: '/linux/file-descriptor',
-      }
     ],
     sidebar: {
       '/vue/': [
@@ -74,6 +83,9 @@ module.exports = {
         'file-descriptor',
         'mixed',
       ],
+      '/backend-common-situation/': [
+        'lock',
+      ],
       '/leetcode/': [
         '',
         'interesting',
@@ -81,6 +93,7 @@ module.exports = {
     },
   },
   plugins: {
+    'flowchart': true,
     '@vuepress/active-header-links': true,
     '@vuepress/medium-zoom': true,
     '@vuepress/last-updated': {
