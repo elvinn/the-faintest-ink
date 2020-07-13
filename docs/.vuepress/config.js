@@ -49,7 +49,11 @@ module.exports = {
       },
       {
         text: 'LeetCode',
-        link: '/leetcode/'
+        link: '/leetcode/',
+      },
+      {
+        text: 'Linux',
+        link: '/linux/file-descriptor',
       }
     ],
     sidebar: {
@@ -65,6 +69,10 @@ module.exports = {
       ],
       '/cpp/': [
         '',
+      ],
+      '/linux/': [
+        'file-descriptor',
+        'mixed',
       ],
       '/leetcode/': [
         '',
