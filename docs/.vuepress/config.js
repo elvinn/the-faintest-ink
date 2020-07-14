@@ -64,6 +64,10 @@ module.exports = {
         text: 'LeetCode',
         link: '/leetcode/',
       },
+      {
+        text: '阅读',
+        link: '/reading/2020'
+      }
     ],
     sidebar: {
       '/vue/': [
@@ -89,6 +93,9 @@ module.exports = {
       '/leetcode/': [
         '',
         'interesting',
+      ],
+      '/reading/': [
+        '2020',
       ],
     },
   },
