@@ -38,6 +38,10 @@ module.exports = {
             link: '/typescript/',
           },
           {
+            text: '音视频',
+            link: '/audio-video/file-format',
+          },
+          {
             text: '工具',
             link: '/frontend-util/eslint',
           }
@@ -72,6 +76,9 @@ module.exports = {
       ],
       '/typescript/': [
         '',
+      ],
+      '/audio-video/': [
+        'file-format',
       ],
       '/frontend-util/': [
         'eslint',
