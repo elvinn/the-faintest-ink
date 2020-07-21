@@ -79,6 +79,7 @@ module.exports = {
       ],
       '/frontend-util/': [
         'eslint',
+        'mixed',
       ],
       '/cpp/': [
         '',

@@ -146,6 +146,6 @@ module.exports = {
 每一个 plugin 都是名如 `eslint-plugin-<plugin-name>` 的 npm 模块，例如 [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)，它提供的能力非常多：
 
 - 提供对非 JavaScript 类型文件的解析（processors）
-- 实现新的代码检查规则（rules）和可能的自动修复能力（fix)
+- 实现新的代码检查规则（rules）和可能的自动修复能力（fix）
 - 声明全局环境变量（environments）
 - 配置可选的规范（configs）
