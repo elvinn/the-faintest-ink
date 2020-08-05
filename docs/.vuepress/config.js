@@ -38,6 +38,10 @@ module.exports = {
             link: '/typescript/',
           },
           {
+            text: 'Node.js',
+            link: 'nodejs',
+          },
+          {
             text: '音视频',
             link: '/audio-video/file-format',
           },
@@ -105,6 +109,9 @@ module.exports = {
       ],
       '/reading/': [
         '2020',
+      ],
+      '/nodejs/': [
+        'memory',
       ],
     },
   },
