@@ -11,3 +11,5 @@ ALTER TABLE t1 MODIFY col_a BIGINT NOT NULL; # 使用 modify
 ```
 
 也就是说在使用 `change` 的时候，哪怕不涉及重命名，仍需要将字段名写两次。
+
+<Vssue title="MySQL" />

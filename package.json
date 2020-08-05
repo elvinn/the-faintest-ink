@@ -25,5 +25,9 @@
     "@vuepress/theme-default": "^1.5.2",
     "vuepress": "^1.5.2",
     "vuepress-plugin-flowchart": "^1.4.3"
+  },
+  "dependencies": {
+    "@vssue/api-github-v3": "^1.4.4",
+    "@vssue/vuepress-plugin-vssue": "^1.4.6"
   }
 }

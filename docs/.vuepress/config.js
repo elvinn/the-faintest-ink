@@ -135,6 +135,13 @@ module.exports = {
           })
       }
     },
+    '@vssue/vuepress-plugin-vssue': {
+      platform: 'github',
+      owner: 'elvinn',
+      repo: 'the-faintest-ink',
+      clientId: '45ae60f2ab9ac2eff0cd',
+      clientSecret: '241dee426e4831c9fa2491f32dc1b8359e82fabd', // 这个影响范围还好
+    }
   },
   head: [
     ['script', {}, `var isProd = location.hostname !== 'localhost'; if (isProd && location.protocol === 'http:') { location.protocol = "https:"; }`]
