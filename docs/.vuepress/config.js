@@ -63,6 +63,10 @@ module.exports = {
             link: '/linux/file-descriptor',
           },
           {
+            text: 'MySQL',
+            link: '/mysql/',
+          },
+          {
             text: '常见场景',
             link: '/backend-common-situation/lock'
           }
@@ -99,6 +103,9 @@ module.exports = {
       '/linux/': [
         'file-descriptor',
         'mixed',
+      ],
+      '/mysql/': [
+        '',
       ],
       '/backend-common-situation/': [
         'lock',
