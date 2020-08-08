@@ -93,3 +93,63 @@
   {{ user.firstName }}
 </current-user>
 ```
+
+## 属性绑定
+
+有的时候会看到通过 `:attr="xxx"` 的方式传值，有的时候也会看到去掉省略号的方式 `attr="yyy"` 传值，那么这两者有什么区别呢？
+
+``` vue
+<user-info
+  :name="username"
+  age="24"
+>
+```
+
+其实 `:name="username"` 是 `v-bind:name="username"` 的简写，属于动态绑定，会将 `username` 这个变量的值传递到子组件的属性 `name` 上，而 `age="24"` 则只是简单的字符串传递。
+
+例如对于如下实现的子组件 `<user-info>`：
+
+``` vue
+<template>
+  <div>
+    Hello {{name}}, your age is {{age}}. <br>
+
+    Prop name type is {{typeof name}}. <br>
+    Prop age type is {{typeof age}}. <br>
+  </div>
+</template>
+```
+
+当在父组件中进行如下调用时：
+
+``` vue
+<template>
+  <div id="app">
+    <user-info :name="username" age="24" />
+  </div>
+</template>
+
+<script>
+import UserInfo from './components/UserInfo'
+
+export default {
+  name: 'App',
+  components: {
+    UserInfo,
+  },
+  data() {
+    return {
+      username: 'elvinn',
+    }
+  }
+}
+</script>
+```
+
+渲染结果为:
+
+``` html
+Hello elvinn, your age is 24. 
+Prop name type is string. 
+Prop age type is string. 
+```
