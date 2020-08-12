@@ -56,7 +56,7 @@ module.exports = {
         items: [
           {
             text: 'C++',
-            link: '/cpp/',
+            link: '/cpp/stl-container',
           },
           {
             text: 'Linux',
@@ -98,7 +98,8 @@ module.exports = {
         'mixed',
       ],
       '/cpp/': [
-        '',
+        'stl-container',
+        'move-semantic'
       ],
       '/linux/': [
         'file-descriptor',
