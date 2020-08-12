@@ -94,3 +94,5 @@ int add(int* p, int a) {
 1. [美团技术团队 - 不可不说的Java“锁”事](https://tech.meituan.com/2018/11/15/java-lock.html)
 2. [掘金 - 全面了解mysql锁机制（InnoDB）与问题排查](https://juejin.im/post/5b82e0196fb9a019f47d1823)
 3. [掘金 - 面试必备之乐观锁与悲观锁](https://juejin.im/post/5b4977ae5188251b146b2fc8)
+
+<Vssue title="并发中的锁机制" />

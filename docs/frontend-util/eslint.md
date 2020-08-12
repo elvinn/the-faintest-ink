@@ -150,4 +150,4 @@ module.exports = {
 - 声明全局环境变量（environments）
 - 配置可选的规范（configs）
 
-<Vssue :title="ESLint" />
+<Vssue title="ESLint" />

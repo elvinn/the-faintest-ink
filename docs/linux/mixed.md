@@ -10,3 +10,5 @@
 ## 常用命令
 
 1. `du -h --max-depth=1`: 查看当前目录下所有子目录的总大小
+
+<Vssue title="Linux 杂" />

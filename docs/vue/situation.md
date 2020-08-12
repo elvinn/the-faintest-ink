@@ -49,3 +49,5 @@ export default {
 }
 </script>
 ```
+
+<Vssue title="Vue 常见实践总结" />

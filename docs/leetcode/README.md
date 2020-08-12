@@ -47,3 +47,5 @@ for (let i = 0; i < 3; i++) {
 1. [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 2. [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
 3. [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
+
+<Vssue title="Leetcode 常用技巧" />

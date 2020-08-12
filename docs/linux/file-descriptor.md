@@ -25,3 +25,4 @@ Linux 系统把一切都看做是文件，具体可分为：
 |     2      | 标准错误 | STDERR_FILENO | Stderr   |
 
 
+<Vssue title="Linux 文件描述符" />

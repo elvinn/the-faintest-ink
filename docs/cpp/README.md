@@ -59,3 +59,5 @@ assert(c == d);
 ```
 
 [Stack Overflow - Can I use ' == ' to compare two vectors?](https://stackoverflow.com/questions/16422486/can-i-use-to-compare-two-vectors-i-tried-it-and-seems-to-be-working-fine)
+
+<Vssue title="C++ STL 容器" />

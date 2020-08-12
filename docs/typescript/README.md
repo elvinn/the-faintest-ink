@@ -79,3 +79,5 @@ const getDirModules = async (dirName: string) => {
   ...
 }
 ```
+
+<Vssue title="TypeScript" />

@@ -109,3 +109,5 @@ v.f30742.ts?start=770992&end=1297023&type=mpegts&us=4449635466523407452&sign=4e6
 ## 参考资料
 
 1. [RFC 8216 - HTTP Live Streaming](https://tools.ietf.org/html/rfc8216#section-4.3.2.1)
+
+<Vssue title="音视频传输协议" />

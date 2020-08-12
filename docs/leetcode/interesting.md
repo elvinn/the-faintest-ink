@@ -53,3 +53,5 @@ const getLastMoment = (n, left, right) => {
   return Math.max(mostLeft, n - mostRight)
 }
 ```
+
+<Vssue title="Leetcode 好玩的题目" />
