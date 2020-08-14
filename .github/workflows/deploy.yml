@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Login at Tencent Cloudbase
         env:
@@ -21,8 +21,8 @@ jobs:
         run: $(npm bin)/tcb login --apiKeyId "$apiKeyId" --apiKey "$apiKey"
 
       - name: Build project
-        run: npm run build
+        run: yarn build
 
       - name: Deploy to Tencent Cloudbase
-        run: npm run deploy
+        run: yarn deploy
 
