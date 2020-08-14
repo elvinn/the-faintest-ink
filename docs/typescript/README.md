@@ -80,4 +80,4 @@ const getDirModules = async (dirName: string) => {
 }
 ```
 
-<Vssue title="TypeScript" />
+<Vssue title="TypeScript 使用" />

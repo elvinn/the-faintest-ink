@@ -88,6 +88,7 @@ module.exports = {
       ],
       '/typescript/': [
         '',
+        'problems',
       ],
       '/audio-video/': [
         'file-format',
