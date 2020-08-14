@@ -19,16 +19,16 @@
   },
   "devDependencies": {
     "@cloudbase/cli": "^0.8.1",
+    "@vssue/api-github-v3": "^1.4.4",
+    "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "@vuepress/plugin-active-header-links": "^1.5.2",
+    "@vuepress/plugin-back-to-top": "^1.5.3",
     "@vuepress/plugin-container": "^1.0.0-alpha.41",
+    "@vuepress/plugin-google-analytics": "^1.5.3",
     "@vuepress/plugin-medium-zoom": "^1.5.2",
     "@vuepress/theme-default": "^1.5.2",
     "vuepress": "^1.5.2",
-    "vuepress-plugin-flowchart": "^1.4.3"
-  },
-  "dependencies": {
-    "@vssue/api-github-v3": "^1.4.4",
-    "@vssue/vuepress-plugin-vssue": "^1.4.6",
+    "vuepress-plugin-flowchart": "^1.4.3",
     "vuepress-plugin-sitemap": "^2.3.1"
   }
 }

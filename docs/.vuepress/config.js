@@ -128,6 +128,7 @@ module.exports = {
     'flowchart': true,
     '@vuepress/active-header-links': true,
     '@vuepress/medium-zoom': true,
+    '@vuepress/back-to-top': true,
     '@vuepress/last-updated': {
       transformer: (timestamp) => {
         return new Date(timestamp)
@@ -147,6 +148,9 @@ module.exports = {
     'sitemap': {
       hostname: 'https://elvinn.cn/notes/'
     },
+    '@vuepress/google-analytics': {
+      'ga': 'UA-99326171-2'
+    }
   },
   head: [
     ['script', {}, `var isProd = location.hostname !== 'localhost'; if (isProd && location.protocol === 'http:') { location.protocol = "https:"; }`]
