@@ -39,7 +39,7 @@ module.exports = {
           },
           {
             text: 'Node.js',
-            link: 'nodejs',
+            link: '/nodejs/memory',
           },
           {
             text: '音视频',
