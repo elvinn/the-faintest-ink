@@ -60,7 +60,7 @@ console.log(JSON.stringify({
 
 1. 全局变量
 2. 闭包引用
-3. 事件监听函数
+3. 事件绑定
 4. 缓存爆炸
 
 接下来分别举个例子讲一讲。
@@ -106,13 +106,89 @@ let replaceThing = function() {
 setInterval(replaceThing, 100);
 ```
 
-运行这段代码可以看到输出的已使用堆内存越来越大，而其中的关键就是因为
+运行这段代码可以看到输出的已使用堆内存越来越大，而其中的关键就是因为 `闭包对象是当前作用域中的所有内部函数作用域共享的`，所以会形成 `theThing` -> `someMethod` -> `newThing` -> 上一次 `theThing` ->... 的循环引用，从而导致每一次执行 `replaceThing` 这个函数的时候，都会执行一次 `longStr: new Array(1e8).join("*")`，而且其不会被自定回收，导致占用的内存越来越大，最终内存泄漏。
 
-### 事件监听函数
+对于上面这个问题有一个很巧妙的解决方法：通过引入新的块级作用域，将 `newThing` 的声明和使用隔离开来，从而打破共享，阻止循环引用。
+
+``` js {3,8}
+let theThing = null;
+let replaceThing = function() {
+  {
+    const newThing = theThing;
+    const unused = function() {
+      if (newThing) console.log("hi");
+    };
+  }
+  // 不断修改引用
+  theThing = {
+    longStr: new Array(1e8).join("*"),
+    someMethod: function() {
+      console.log("a");
+    },
+  };
+
+  // 每次输出的值会越来越大
+  console.log(process.memoryUsage().heapUsed);
+};
+
+setInterval(replaceThing, 100);
+```
+
+这里通过 `{ ... }` 形成了单独的块级作用域，而且在外部没有引用，从而 `newThing` 在 GC 的时候会被自动回收，例如在我的电脑运行这段代码输出如下：
+
+``` {7}
+2097128
+2450104
+2454240
+...
+2661080
+2665200
+2086736 // 此时进行垃圾回收释放了内存
+2093240
+```
+
+### 事件绑定
+
+事件绑定导致的内存泄漏在浏览器中非常常见，一般是由于事件响应函数未及时移除，导致重复绑定或者 DOM 元素已移除后未处理事件响应函数造成的，例如下面这段 React 代码：
+
+``` jsx{2-6}
+class Test extends React.Component {
+  componentDidMount() {
+    window.addEventListener('resize', function() {
+      // 相关操作
+    });
+  }
+  
+  render() {
+    return <div>test component</div>;
+  }
+}
+```
+
+`<Test />` 组件在挂载的时候监听了 `resize` 事件，但是在组件移除的时候没有处理相应函数，假如 `<Test />` 的挂载和移除非常频繁，那么就会在 window 上绑定很多无用的事件监听函数，最终导致内存泄漏。可以通过如下的方式避免这个问题：
+
+``` jsx{8-10}
+class Test extends React.Component {
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  handleResize() { ... }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+  
+  render() {
+    return <div>test component</div>;
+  }
+}
+```
+
 
 ### 缓存爆炸
 
-
+## 内存泄漏定位实操
 
 ## 参考文章
 
