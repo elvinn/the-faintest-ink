@@ -108,7 +108,7 @@ let replaceThing = function() {
 setInterval(replaceThing, 100);
 ```
 
-运行这段代码可以看到输出的已使用堆内存越来越大，而其中的关键就是因为 `闭包对象是当前作用域中的所有内部函数作用域共享的`，所以会形成 `theThing` -> `someMethod` -> `newThing` -> 上一次 `theThing` ->... 的循环引用，从而导致每一次执行 `replaceThing` 这个函数的时候，都会执行一次 `longStr: new Array(1e8).join("*")`，而且其不会被自动回收，导致占用的内存越来越大，最终内存泄漏。
+运行这段代码可以看到输出的已使用堆内存越来越大，而其中的关键就是因为 `因为在目前的 V8 实现当中，闭包对象是当前作用域中的所有内部函数作用域共享的`，也就是说 `theThing.someMethod` 和 `unUsed` 共享同一个闭包的 context，导致  `theThing.someMethod` 隐式的持有了对之前的 `newThing` 的引用，所以会形成 `theThing` -> `someMethod` -> `newThing` -> 上一次 `theThing` ->... 的循环引用，从而导致每一次执行 `replaceThing` 这个函数的时候，都会执行一次 `longStr: new Array(1e8).join("*")`，而且其不会被自动回收，导致占用的内存越来越大，最终内存泄漏。
 
 对于上面这个问题有一个很巧妙的解决方法：通过引入新的块级作用域，将 `newThing` 的声明、使用与外部隔离开，从而打破共享，阻止循环引用。
 
