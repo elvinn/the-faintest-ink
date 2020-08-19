@@ -275,7 +275,9 @@ setInterval(replaceThing, 100);
 
 ![循环引用](./public/chain.jpg)
  
-图中很明显的看出来，内存泄漏原因就是因为 `newTHing` -> 闭包上下文 -> `someMethod` -> 上一次 `newThing` 这样的链式不断调用导致内存的快速增长。
+图中很明显的看出来，内存泄漏原因就是因为 `newTHing` <- 闭包上下文 <- `someMethod` <- 上一次 `newThing` 这样的链式依赖关系导致内存的快速增长。
+
+图中第二列的 distance 表示的是该变量距离根节点的距离，因而最上级的 `newThing` 是最远的，表示的是下级引用上级的关系。
 
 ## 参考文章
 
