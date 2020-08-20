@@ -271,7 +271,7 @@ setInterval(replaceThing, 100);
 ![拼接的字符串](./public/concatenated-string.jpg)
 ![闭包](./public/closure-somemethod.jpg)
 
-从这两个图中，可以很直观的看出来主要是 `theThing.someMethod` 这个函数的闭包上下文和 `theThing.longStr` 这个很长的拼接字符串造成的内存泄漏，到这里问题就基本定位清除了，我们还可以点击下方的 `Object` 模块来更清楚的看一下调用链的关系：
+从这两个图中，可以很直观的看出来主要是 `theThing.someMethod` 这个函数的闭包上下文和 `theThing.longStr` 这个很长的拼接字符串造成的内存泄漏，到这里问题就基本定位清楚了，我们还可以点击下方的 `Object` 模块来更清楚的看一下调用链的关系：
 
 ![循环引用](./public/chain.jpg)
  
