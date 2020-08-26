@@ -153,6 +153,7 @@ module.exports = {
     }
   },
   head: [
-    ['script', {}, `var isProd = location.hostname !== 'localhost'; if (isProd && location.protocol === 'http:') { location.protocol = "https:"; }`]
+    // 百度统计脚本，https://tongji.baidu.com/
+    ['script', {}, `var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?63da3d24170446816a74ced73eaa7b34"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })();`]
   ]
 };
