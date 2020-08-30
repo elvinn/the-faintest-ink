@@ -35,7 +35,7 @@ function infiniteLoop(): never {
 
 ```
 
-
+## type 和 interface 的区别
 
 
 
