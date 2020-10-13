@@ -107,7 +107,8 @@ module.exports = {
       ],
       '/cpp/': [
         'stl-container',
-        'move-semantic'
+        'move-semantic',
+        "problems",
       ],
       '/linux/': [
         'file-descriptor',
