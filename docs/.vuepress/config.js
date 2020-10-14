@@ -30,6 +30,10 @@ module.exports = {
         text: '大前端',
         items: [
           {
+            text: 'React',
+            link: '/react/problems',
+          },
+          {
             text: 'Vue',
             link: '/vue/usage',
           },
@@ -86,6 +90,9 @@ module.exports = {
       }
     ],
     sidebar: {
+      '/react/': [
+        'problems',
+      ],
       '/vue/': [
         'usage',
         'situation',
