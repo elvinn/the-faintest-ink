@@ -56,6 +56,10 @@ module.exports = {
           {
             text: '工具',
             link: '/frontend-util/eslint',
+          },
+          {
+            text: '冷知识',
+            link: '/frontend-trivia/'
           }
         ],
       },
@@ -111,6 +115,9 @@ module.exports = {
       '/frontend-util/': [
         'eslint',
         'mixed',
+      ],
+      '/frontend-trivia/': [
+        '',
       ],
       '/cpp/': [
         'stl-container',
