@@ -91,6 +91,15 @@ module.exports = {
       {
         text: '阅读',
         link: '/reading/2020'
+      },
+      {
+        text: '个人项目',
+        items: [
+          {
+            text: 'memo',
+            link: '/self-project/memo/'
+          }
+        ]
       }
     ],
     sidebar: {
@@ -144,6 +153,10 @@ module.exports = {
       '/nodejs/': [
         'memory',
       ],
+      '/self-project/memo/': [
+        '',
+        'oauth',
+      ]
     },
   },
   plugins: {
