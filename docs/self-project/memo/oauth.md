@@ -73,7 +73,7 @@
 
 ### 参考资料
 
-1.  [RFC 6749 标准 - Oauth 2.0](https://tools.ietf.org/html/rfc6749) 
+1. [RFC 6749 标准 - Oauth 2.0](https://tools.ietf.org/html/rfc6749) 
 2. [Github Docs - Authorizing OAuth Apps](https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps)
 
 <Vssue title="memo Oauth 登录" />
