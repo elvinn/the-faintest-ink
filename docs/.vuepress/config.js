@@ -123,6 +123,7 @@ module.exports = {
       ],
       '/frontend-util/': [
         'eslint',
+        'npm',
         'mixed',
       ],
       '/frontend-trivia/': [
