@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./logo.jpg
+heroImage: /logo.jpg
 heroText: 好记性不如烂笔头
 tagline: elvinn 的个人笔记
 ---
