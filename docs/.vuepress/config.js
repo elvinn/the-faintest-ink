@@ -58,8 +58,8 @@ module.exports = {
             link: '/frontend-util/eslint',
           },
           {
-            text: '冷知识',
-            link: '/frontend-trivia/'
+            text: '其它',
+            link: '/frontend-other/problems'
           }
         ],
       },
@@ -126,8 +126,9 @@ module.exports = {
         'npm',
         'mixed',
       ],
-      '/frontend-trivia/': [
-        '',
+      '/frontend-other/': [
+        'problems',
+        'trivial'
       ],
       '/cpp/': [
         'stl-container',
