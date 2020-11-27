@@ -35,9 +35,6 @@ function infiniteLoop(): never {
 
 ```
 
-## type 和 interface 的区别
-
-
 
 
 <Vssue title="TypeScript 常见问题" />

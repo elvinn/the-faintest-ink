@@ -172,4 +172,71 @@ function logPerson(person: Person) {
 2. [在线练习 - TypeScript exercises 第 2, 3, 4 节](https://typescript-exercises.github.io/)
 
 
+## Map 映射中使用枚举
+
+在开发中常见的场景是用枚举定义操作的类型，然后使用一个空对象将操作的类型和其处理函数对应起来，例如：
+
+``` ts{19}
+enum Action {
+  ADD_LIST = 'ADD_LIST',
+  DELETE_LIST = 'QUERY_LIST',
+  ADD_ITEM = 'ADD_ITEM',
+  DELETE_ITEM = 'DELETE_ITEM',
+}
+
+function handleAddItem() {}
+function handleDeleteItem() {}
+
+function main(type: Action) {
+  // 仅处理单个 item 操作
+  // 将类型和操作对应起来
+  const actionToFuncMap = {
+    [Action.ADD_ITEM]: handleAddItem,
+    [Action.DELETE_ITEM]: handleDeleteItem,
+  }
+
+  const func = actionToFuncMap[type]
+
+  if (!func) {
+    return undefined;
+  }
+
+  return func();
+}
+```
+
+这种方式相较于使用 `if` / `switch` 更加简洁，不过上述代码第 19 行在 typescript 中会报错：
+
+> Element implicitly has an 'any' type because expression of type 'Action' can't be used to index type '{ ADD_ITEM: () => void; DELETE_ITEM: () => void; }'. Property '[Action.ADD_LIST]' does not exist on type '{ ADD_ITEM: () => void; DELETE_ITEM: () => void; }'.
+
+翻译一下就是说 `type` 还可能是 `ADD_LIST` / `QUERY_LIST`，但是没在 `actionToFuncMap` 中列出来，所以 `func` 有可能为 `any`。
+
+面对这个问题当然可以直接根据报错提示，将 `actionToFuncMap` 的 key 补充完整：
+
+```ts
+// 不推荐做法：将 key 补充完成
+const actionToFuncMap = {
+  [Action.ADD_ITEM]: handleAddItem,
+  [Action.DELETE_ITEM]: handleDeleteItem,
+  [Action.ADD_LIST]: null,
+  [Action.DELETE_LIST]: null,
+}
+```
+
+但是这种做法不太好，因为就算用不到的类型也需要将它写出来。更好的方式是通过 **可选属性** 与 `in` 操作符结合使用：
+
+``` ts
+// 推荐做法：可选属性与 in 操作符结合
+interface ItemHandler {
+  (): void;
+}
+
+const actionToFuncMap: {
+  [index in Action]?: ItemHandler;
+} = {
+  [Action.ADD_ITEM]: handleAddItem,
+  [Action.DELETE_ITEM]: handleDeleteItem,
+}
+```
+
 <Vssue title="TypeScript 使用" />
