@@ -50,4 +50,59 @@ Object.prototype.hasOwnProperty.call(obj, 'name') // true
 Object.prototype.toString.call(obj) // '[object Object]'
 ```
 
+## 页面初始化事件
+
+面试题很喜欢考察的一个点是 `load/DomContentLoaded/readystatechange` 事件之间有什么区别，并讲出它们的执行顺序，例如你能说出下面代码的输出吗？
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    window.addEventListener('load', (event) => console.log('load'));
+
+    document.addEventListener('readystatechange', (event) => console.log(`ready state: ${document.readyState}`));
+
+    document.addEventListener('DOMContentLoaded', (event) => console.log(`DOMContentLoaded\n`));
+  </script>
+</head>
+<body></body>
+</html>
+```
+
+除了触发事件的目标元素不同（`readystatechange/DOMContentLoaded` 在 `document` 上，而 `load` 在 `window`）上，最大的区别就是触发时间不同：
+
+- `load`：表示全部资源加载完成。
+- `DomContentLoaded`：表示 document 已经解析完成，即将加载图片、CSS 样式等子资源。
+- `readystatechange`：有 `loading`/`interactive`/`complete` 三种值，其中 `loading` 表示正在加载资源；`interactive` 表示用户可进行交互，此时表示 document 已经解析完成，即将加载图片、CSS 样式等子资源；`complete` 表示全部资源加载完成，即将触发 `load` 事件。
+
+需要说明的是在 `readystatechange` 事件触发之后，才会触发相应的 `DomContentLoaded`/`load` 事件，这非常有利于我们记忆。对于最开始列出的代码，它的输出即为:
+
+``` log
+ready state: interactive
+DOMContentLoaded
+ready state: complete
+load
+```
+
+除了上述三个原生的事件之外，经常被问起的还有 jQuery 中 `$.ready(fn)` 和它们的区别。在我个人看来，对于现代浏览器而言，可以将其等价为在 `DomContentLoaded` 事件触发时执行 `fn` 函数。
+
+另外监听这些事件一般都是为了在页面加载完成后执行相应的 JavaScript 代码，我更喜欢的方法是将这段代码放在 HTML 的尾部：
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+
+<head><!-- ... --></head>
+<body>
+  <!-- ... -->
+  <script>
+    // 在页面加载完成后执行
+    // ...      
+  <script>   
+</body>
+
+</html>
+```
+
 <Vssue title="前端冷知识" />
