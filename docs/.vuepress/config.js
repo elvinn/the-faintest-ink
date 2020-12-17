@@ -128,7 +128,8 @@ module.exports = {
       ],
       '/frontend-other/': [
         'problems',
-        'trivial'
+        'native',
+        'trivial',
       ],
       '/cpp/': [
         'stl-container',
