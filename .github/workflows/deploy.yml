@@ -26,3 +26,13 @@ jobs:
       - name: Deploy to Tencent Cloudbase
         run: yarn deploy
 
+  archive:
+    if: failure()
+    needs: build
+    steps:
+      - name: Archive Log
+        uses: actions/upload-artifact@v2
+        with:
+          name: cloudbase-log
+          path: ./*.log
+
