@@ -29,6 +29,8 @@ jobs:
   archive:
     if: failure()
     needs: build
+    runs-on: ubuntu-latest
+
     steps:
       - name: Archive Log
         uses: actions/upload-artifact@v2
