@@ -5,10 +5,6 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <div id='wx_pic' style='margin:0 auto;display:none;'>
-      <img :src="$withBase('/logo_300.jpg')" alt="微信分享缩略图" />
-    </div>
-
     <Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
@@ -120,7 +116,6 @@ export default {
   },
 
   mounted () {
-    console.log('-----???? mounted');
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
