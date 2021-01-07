@@ -90,7 +90,7 @@ module.exports = {
       },
       {
         text: '阅读',
-        link: '/reading/2020'
+        link: '/reading/2021'
       },
       {
         text: '个人项目',
@@ -151,6 +151,7 @@ module.exports = {
         'interesting',
       ],
       '/reading/': [
+        '2021',
         '2020',
       ],
       '/nodejs/': [
