@@ -78,7 +78,7 @@ Object.prototype.toString.call(obj) // '[object Object]'
 
 需要说明的是在 `readystatechange` 事件触发之后，才会触发相应的 `DomContentLoaded`/`load` 事件，这非常有利于我们记忆。对于最开始列出的代码，它的输出即为:
 
-``` log
+```
 ready state: interactive
 DOMContentLoaded
 ready state: complete
