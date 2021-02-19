@@ -38,6 +38,10 @@ module.exports = {
             link: '/vue/usage',
           },
           {
+            text: '小程序',
+            link: '/miniprogram/problems',
+          },
+          {
             text: 'TypeScript',
             link: '/typescript/',
           },
@@ -109,6 +113,9 @@ module.exports = {
       '/vue/': [
         'usage',
         'situation',
+      ],
+      '/miniprogram/': [
+        'problems',
       ],
       '/typescript/': [
         '',
