@@ -105,4 +105,11 @@ load
 </html>
 ```
 
+## String.raw
+
+对于一些含有转义字符的字符串，例如 Windows 下的路径 `C:\Program Files (x86)\Tencent`，使用 `String.raw` 可以很方便的表示，节省转义字符 `\`：
+
+- 传统表示：'C:\\\\Program Files (x86)\\\\Tencent'
+- 模板字符串表示：String.raw\`C:\Program Files (x86)\Tencent\`
+
 <Vssue title="前端冷知识" />
