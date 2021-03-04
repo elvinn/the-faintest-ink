@@ -94,7 +94,16 @@ module.exports = {
       },
       {
         text: '阅读',
-        link: '/reading/2021'
+        items: [
+          {
+            text: '2021',
+            link: '/reading/2021',
+          },
+          {
+            text: '2020',
+            link: '/reading/2020',
+          }
+        ],
       },
       {
         text: '个人项目',
@@ -152,6 +161,7 @@ module.exports = {
       ],
       '/backend-common-situation/': [
         'lock',
+        'log-rotate',
       ],
       '/leetcode/': [
         '',
