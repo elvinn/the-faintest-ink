@@ -12,4 +12,17 @@ ALTER TABLE t1 MODIFY col_a BIGINT NOT NULL; # 使用 modify
 
 也就是说在使用 `change` 的时候，哪怕不涉及重命名，仍需要将字段名写两次。
 
+## union 和 union all 的区别
+
+`union` 和 `union all` 都可以将两个或多个有相同数量的结果集进行合并，不过也有一点区别：
+
+- `union`: 会进行去重;
+- `union all`: 会保留重复的数据。
+
+### union
+![union](./public/union.png)
+
+### union all
+![union all](./public/union_all.png)
+
 <Vssue title="MySQL" />
