@@ -1,4 +1,4 @@
-# 冷知识
+# 基础知识
 
 在学习前端的过程中，总能时不时发现一些出乎意料的事情，我称它们为“冷知识”，虽然不是很有用，但是很有意思，而且一不小心就会掉进坑里。
 
@@ -112,4 +112,74 @@ load
 - 传统表示：'C:\\\\Program Files (x86)\\\\Tencent'
 - 模板字符串表示：String.raw\`C:\Program Files (x86)\Tencent\`
 
-<Vssue title="前端冷知识" />
+## 惰性加载函数
+
+对于前端代码而言，必须要考虑的一个问题就是兼容性，为了实现一个功能，时常需要针对不同的浏览器环境编写不同的代码。例如一个简单的事件绑定函数如下所示：
+
+``` js
+function bindEvent(element, eventName, handler) {
+  if (document.addEventListener) {
+    element.addEventListener(eventName, handler);
+    return;
+  }
+
+  const typeString = 'on' + eventName;
+  if (document.attachEvent) {
+    element.attachEvent(typeString, handler);
+    return;
+  }
+
+  element[typeString] = handler;
+}
+```
+
+通过这种 `if ... else ...` 的代码可以很方便地解决兼容性问题，但是每次调用都进行兼容性判断是不必要的，其实仅在第一次运行的时候进行判断就足够了，这种做法就叫做**惰性加载**，具体的实现方式有两种：
+
+- 在函数定义时，通过自执行函数完成逻辑判断
+- 在函数第一次执行时，进行逻辑判断覆盖函数本身
+
+相应的代码如下：
+
+``` js
+// 方式一：在函数定义时，通过自执行函数就完成逻辑判断
+const bindEvent = (element, eventName, handler) {
+  if (document.addEventListener) {
+    return (element, eventName, handler) => {
+      element.addEventListener(eventName, handler);
+    };
+  }
+
+  if (document.attachEvent) {
+    return (element, eventName, handler) => {
+      element.attachEvent('on' + eventName, handler);
+    };
+  }
+
+  return (element, eventName, handler) => {
+    element['on' + eventName] = handler;
+  }
+}()
+```
+
+``` js
+// 方式二：在函数第一次执行时，进行逻辑判断覆盖函数本身
+const bindEvent = (element, eventName, handler) {
+  if (document.addEventListener) {
+    bindEvent = (element, eventName, handler) => {
+      element.addEventListener(eventName, handler);
+    };
+  }
+
+  if (document.attachEvent) {
+    bindEvent = (element, eventName, handler) => {
+      element.attachEvent('on' + eventName, handler);
+    };
+  }
+
+  bindEvent = (element, eventName, handler) => {
+    element['on' + eventName] = handler;
+  }
+}
+```
+
+<Vssue title="前端基础知识" />
