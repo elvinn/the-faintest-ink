@@ -184,7 +184,7 @@ const bindEvent = (element, eventName, handler) {
 
 ## 稀疏数组
 
-在想初始化一个 `[0, 1, 2, 3, 4, 5, 6, 7]` 数组的时候，写出了如下代码：
+在初始化一个 `[0, 1, 2, 3, 4, 5, 6, 7]` 数组的时候，我写出了如下代码：
 
 ``` js
 const array = new Array(8).map((_, index) => index);
@@ -192,27 +192,50 @@ const array = new Array(8).map((_, index) => index);
 
 然而运行结果出乎意料，`map` 中代码并未执行，`array` 变成了 `[empty × 8]`，这是为什么呢？
 
-实际上这里 `array` 是一个稀疏数组（sparse array），就是索引不连续，数组长度大于元素个数的数组，也就是有空隙的数组，可以通过如下方式产生：
+实际上这里 `array` 是一个**稀疏数组（sparse array）**，就是索引不连续，数组长度大于元素个数的数组，也就是有空隙的数组，可以通过如下五种方式产生：
 
 ``` js
-// 直接使用 new Array
+// 1. 直接使用 new Array
 const arrA = new Array(8);
 
-// 连续的逗号
+// 2. 连续的逗号
 const arrB = [1, 2,, 3];
 
-// 指定大于元素个数的长度
+// 3. 指定大于元素个数的长度
 const arrC = [];
 arrC.length = 5;
 
-// 指定的索引值大于当前数组长度
+// 4. 指定的索引值大于当前数组长度
 const arrD = [1];
 arrD[5] = 9;
 
-// 删除元素
+// 5. 删除元素
 const arrE = [1, 2, 3];
 delete arrE[1];
 ```
+
+对于这类稀疏数组，用 ES6 `map/forEach` 等方法遍历的时候，会跳过其中的 `empty` 元素：
+
+``` js
+const arrB = [1, 2,, 3];
+console.log(arrB.length);
+// 输出 4
+
+arrB.forEach((item) => console.log(item));
+// 输出 1 2 3
+
+for (let i = 0; i < arrB.length; i++) {
+  console.log(arrB[i]);
+}
+// 输出 1 2 undefined 3
+```
+
+回到最开始的问题，假如想初始化一个 `[0, 1, 2, 3, 4, 5, 6, 7]` 数组的时候，有什么简单的方法呢？我们可以使用 `Array.from` 来实现这个效果：
+
+``` js
+Array.from({ length: 8 }, (_, i) => i);
+```
+
 
 
 <Vssue title="前端基础知识" />
