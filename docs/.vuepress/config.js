@@ -118,6 +118,7 @@ module.exports = {
     sidebar: {
       '/react/': [
         'problems',
+        'hooks',
       ],
       '/vue/': [
         'usage',
