@@ -141,6 +141,7 @@ module.exports = {
       '/frontend-util/': [
         'eslint',
         'npm',
+        'git',
         'mixed',
       ],
       '/frontend-other/': [
