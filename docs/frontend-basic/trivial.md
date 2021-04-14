@@ -236,6 +236,4 @@ for (let i = 0; i < arrB.length; i++) {
 Array.from({ length: 8 }, (_, i) => i);
 ```
 
-
-
 <Vssue title="前端基础知识" />

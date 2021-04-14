@@ -62,7 +62,11 @@ module.exports = {
             link: '/frontend-util/eslint',
           },
           {
-            text: '其它',
+            text: '基础知识',
+            link: '/frontend-basic/trivial'
+          },
+          {
+            text: '总结记录',
             link: '/frontend-other/problems'
           }
         ],
@@ -144,10 +148,13 @@ module.exports = {
         'git',
         'mixed',
       ],
+      '/frontend-basic/': [
+        'trivial',
+        'iterator',
+      ],
       '/frontend-other/': [
         'problems',
         'native',
-        'trivial',
       ],
       '/cpp/': [
         'stl-container',
