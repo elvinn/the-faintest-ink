@@ -236,4 +236,38 @@ for (let i = 0; i < arrB.length; i++) {
 Array.from({ length: 8 }, (_, i) => i);
 ```
 
+## Set-Cookie
+
+请求响应头部的 `Set-Cookie` 被用来由服务器端向客户端设置 cookie，有几个有意思的字段记录下。
+
+### SameSite
+
+`SameSite` 用于规定相关的 cookie 是仅能被本网站使用（first-party）还是会在第三方网站（third-party）中访问本网站链接时，也能使用。它有三个可选的值：
+
+1. `None`: 在本所有网站请求中均可发送 cookie（需同时设置 Secure 以保证通过 HTTPS 传递 cookie）。
+2. `Lax`: 在本网站的请求和在其它网站通过导航到本网站的 GET 请求都可以发送 cookie。
+3. `Strict`: 仅在本网站的请求中可发送 cookie（对于从其他页面点击跳转到本网站的初始请求，也不会携带 cookie）。
+
+在 Chrome 80 版本之后，对于没有设置 `SameSite` 字段的情况，会使用默认值 `SameSite=Lax`，主要是为了防止 CSRF 攻击，避免在恶意网站中提交的伪造请求携带被攻击网站的 cookie。
+
+参考文档：
+
+1. [阮一峰 - Cookie 的 SameSite 属性](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
+2. [MDN - SameSite cookies](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
+
+### Secure
+
+当设置了 Secure 属性的时候，仅有在使用 SSL 和 HTTPS 协议的时候， cookie 才会被发送到服务器。
+
+### HttpOnly
+
+当设置了 HttpOnly 属性的时候，被设置的 cookie 无法在 JavaScript 中被 `Document.cookie` / `XMLHttpRequest` / `Request` 使用到，可以用于防范 XSS 攻击。
+
+### Expires & Max-age
+
+Expires 和 Max-age 都可以用于指定 cookie 的有效期，前者值是具体的时间点，后者是一段时间（单位秒）：
+
+1. 当两者都未设置值时，cookie 仅在本会话期有效。
+2. 当两者均设置值时，以 Max-age 为准。
+
 <Vssue title="前端基础知识" />
