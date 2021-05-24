@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = {
   title: '烂笔头',
   description: '好记性不如烂笔头',
@@ -195,12 +197,9 @@ module.exports = {
     '@vuepress/medium-zoom': true,
     '@vuepress/back-to-top': true,
     '@vuepress/last-updated': {
-      transformer: (timestamp) => {
-        return new Date(timestamp)
-          .toLocaleString('zh-CN', {
-            timeZone: 'Asia/Shanghai',
-            hour12: false,
-          })
+      transformer: (timestamp, lang) => {
+        moment.locale(lang)
+        return moment(timestamp).toString()
       }
     },
     '@vssue/vuepress-plugin-vssue': {
@@ -212,10 +211,6 @@ module.exports = {
     },
     'sitemap': {
       hostname: 'https://elvinn.cn/notes/',
-      dateFormatter: (val) => {
-        console.log('dateFormatter val', val);
-        return new Date(val).toISOString();
-      },
     },
     '@vuepress/google-analytics': {
       'ga': 'UA-99326171-2'
