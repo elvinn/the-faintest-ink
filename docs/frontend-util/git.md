@@ -2,7 +2,7 @@
 
 ## git diff .. vs ...
 
-``` text
+```
 o-o-X-o-o-o-o-Z master
      \
      -o-o-o-o-o-Y feature-x
@@ -27,13 +27,13 @@ o-o-X-o-o-o-o-Z master
 
 知道了这两者的区别之后，那么就可以看出在下面两种提交情况下，`..` 和 `...` 的对比结果是一样的：
 
-```text
+```
 o-o-X master
      \
      -o-o-o-o-o-Y feature-x
 ```
 
-```text
+```
 o-o-X-o-o-o-o-Z master
      \         \
      -o-o-o-o-o-Y feature-x
