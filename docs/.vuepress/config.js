@@ -211,7 +211,11 @@ module.exports = {
       clientSecret: '241dee426e4831c9fa2491f32dc1b8359e82fabd', // 这个影响范围还好
     },
     'sitemap': {
-      hostname: 'https://elvinn.cn/notes/'
+      hostname: 'https://elvinn.cn/notes/',
+      dateFormatter: (val) => {
+        console.log('dateFormatter val', val);
+        return new Date(val).toISOString();
+      },
     },
     '@vuepress/google-analytics': {
       'ga': 'UA-99326171-2'
