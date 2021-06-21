@@ -136,6 +136,7 @@ module.exports = {
       '/typescript/': [
         '',
         'problems',
+        'basic',
       ],
       '/audio-video/': [
         'file-format',

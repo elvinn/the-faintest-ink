@@ -26,7 +26,7 @@ function warnUser3(): void {
 
 ``` ts
 function error(message: string): never {
-  throw new Error(message);
+  throw new Error(message); 
 }
 
 function infiniteLoop(): never {
@@ -35,6 +35,14 @@ function infiniteLoop(): never {
 
 ```
 
+## compilerOptions 配置
+
+### moduleResolution
+
+TypeScript 提供两种模块解析的策略：
+
+- `Classic`: 默认的策略，主要是为向后兼容，不会在 `node_modules` 中去寻找模块。
+- `Node`: 模仿 Node.js 模块解析机制，一般来说指定为此值即可。
 
 
 <Vssue title="TypeScript 常见问题" />
