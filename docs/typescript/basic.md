@@ -39,5 +39,24 @@ declare module 'wx-server-sdk' {
 }
 ```
 
+## 基本类型
+
+### 数字类型
+
+由于 ES2020 引入了 [BigInt 大数类型](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt)，它提供了一种方法来表示大于 `2^53 - 1` 的整数，所以在 TypeScript 中除了普通的 `number` 类型外，还有一种 `bigint` 的数字类型：
+
+``` ts
+const small: number = 1;
+const big: bigint = 9007199254740992n; // 注意：需要以 n 结尾
+```
+
+### 数组混合类型推断
+
+假如数组中有元素的类型不一致的话，那么 TypeScript 会自定进行推断，认为每一个元素都有可能是多种类型：
+
+``` ts
+// mixedArray 的类型是 (number | string)[]
+const mixedArray = [1, 2, 'hello'];
+```
 
 <Vssue title="TypeScript 基础使用" />
