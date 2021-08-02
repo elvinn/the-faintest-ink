@@ -81,10 +81,12 @@
 - `resolved`：包的下载地址
 - `integrity`：包的完整性校验
 - `dev`：为 `package.json` 中 `dependencies` 声明的包或是子包时，为 false，否则为 true
-- `requires`：列出这个包需要的所有子包及版本
+- `requires`：列出这个包需要的所有子包及版本，即反应的是 `package.json` 中的依赖关系
 - `dependencies`：这个包下需单独安装的子包信息，与 `node_modules` 目录结构相映射
 
-`requires` 和 `dependencies` 的异同点需要额外关注。
+`requires` 和 `dependencies` 的异同点需要额外关注，想一想为什么需要 `requires` 和 `dependencies` 这两个相同的字段呢？
+
+主要是因为有时候包 A 依赖了包 C，包 B 也依赖了包 C，但是包 A 和包 B 依赖的包 C 大版本不一致，这样 `requires` 字段就不足够描述这个依赖安装的具体关系，还需要 `dependencies` 来反映实际的安装情况。具体讨论可以参考 [stack overflow: Package-lock.json - requires vs dependencies](https://stackoverflow.com/questions/52926922/package-lock-json-requires-vs-dependencies)
 
 ## npm VS Yarn
 
