@@ -250,6 +250,9 @@ Array.from({ length: 8 }, (_, i) => i);
 
 在 Chrome 80 版本之后，对于没有设置 `SameSite` 字段的情况，会使用默认值 `SameSite=Lax`，主要是为了防止 CSRF 攻击，避免在恶意网站中提交的伪造请求携带被攻击网站的 cookie。
 
+阮一峰关于 Lax 的总结：
+![阮一峰关于 Lax 的总结](./public/samesite-lax.jpg)
+
 参考文档：
 
 1. [阮一峰 - Cookie 的 SameSite 属性](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
