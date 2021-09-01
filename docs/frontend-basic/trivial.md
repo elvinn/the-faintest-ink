@@ -273,4 +273,44 @@ Expires 和 Max-age 都可以用于指定 cookie 的有效期，前者值是具�
 1. 当两者都未设置值时，cookie 仅在本会话期有效。
 2. 当两者均设置值时，以 Max-age 为准。
 
+## 安全的 JSON.stringify
+
+一般来说，大家都知道 `JSON.parse` 在解析非法的 JSON 字符串时是会抛出异常的（例如 `JSON.parse('WRONG’)`，但是大家知道 `JSON.stringify` 其实也有可能会抛出异常吗？
+
+抛出异常主要有三个场景：
+
+1. 数据存在循环引用
+
+```js
+const foo = {};
+const bar = { foo };
+foo.bar = bar;
+
+JSON.stringify(foo); // 抛出异常 Uncaught TypeError: Converting circular structure to JSON
+```
+
+2. 数据有的 getter 被设置为会抛出异常
+
+```js
+const foo = {};
+Object.defineProperty(foo, 'bar', {
+  get: () => { throw new Error('test') },
+  enumerable: true, // 确保在 JSON.stringify 时会被遍历到
+});
+
+JSON.stringify(foo); // 抛出异常 Uncaught Error: test at Object.get [as bar] (REPL13:2:22)
+```
+
+3. 数据有 BigInt 的字段，由于序列化时无法处理 BigInt 类型，所以会抛出异常
+
+```js
+const foo = { bigInt: 1n }; // n 的后缀表示 BigInt 类型
+JSON.stringify(foo); // 抛出异常 Do not know how to serialize a BigInt
+```
+
+这里推荐一个 npm 包 [safe-json-stringify](https://www.npmjs.com/package/safe-json-stringify)，它针对这三种情况都进行了处理，原理也非常简单：
+
+1. 对于循环引用的问题，使用一个 `visited` 数组存储已经访问过的数据，如果在继续访问时发现已经存在于 `visited` 中，说明存在循环引用，停止继续深入遍历。
+2. 对于 getter 抛出异常和序列化 BigInt 类型的问题，在访问属性时，通过 `try ... catch ...` 包裹即可。
+
 <Vssue title="前端基础知识" />
