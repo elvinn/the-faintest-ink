@@ -6,6 +6,10 @@
 
 不同网络下 MUT 的大小不同，在常用的以太网中，大小为 1500 Byte。
 
+![MTU & MSS - 《网络是怎样连接的》](./public/mtu.jpeg)
+
+注：上图中的 FCS 表示 [Frame Check Sequence（帧校验序列）](https://en.wikipedia.org/wiki/Frame_check_sequence)，俗称帧尾，是一段 4 个字节的循环冗余校验码，具有数据正确性校验的作用。
+
 ### 为什么不能更大？
 
 因为链路层在传输数据包时是被独占的，假如一个数据包过大，就会导致其它的数据包等待时间过长。
