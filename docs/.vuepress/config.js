@@ -145,6 +145,7 @@ module.exports = {
       '/network/':[
         'https',
         'glossary',
+        'cdn',
       ],
       '/frontend-util/': [
         'eslint',
