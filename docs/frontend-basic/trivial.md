@@ -251,6 +251,7 @@ Array.from({ length: 8 }, (_, i) => i);
 在 Chrome 80 版本之后，对于没有设置 `SameSite` 字段的情况，会使用默认值 `SameSite=Lax`，主要是为了防止 CSRF 攻击，避免在恶意网站中提交的伪造请求携带被攻击网站的 cookie。
 
 阮一峰关于 Lax 的总结：
+
 ![阮一峰关于 Lax 的总结](./public/samesite-lax.jpg)
 
 参考文档：
@@ -312,5 +313,36 @@ JSON.stringify(foo); // 抛出异常 Do not know how to serialize a BigInt
 
 1. 对于循环引用的问题，使用一个 `visited` 数组存储已经访问过的数据，如果在继续访问时发现已经存在于 `visited` 中，说明存在循环引用，停止继续深入遍历。
 2. 对于 getter 抛出异常和序列化 BigInt 类型的问题，在访问属性时，通过 `try ... catch ...` 包裹即可。
+
+## HTML 标签的 nonce 字段
+
+在打开 [twitter.com](https://twitter.com/) 看源码时，发现在 HTML 中有大量的如下内联代码：
+
+``` html
+<link rel="preload" as="script" crossorigin="anonymous" href="xxx.js" nonce="N2M5NmI1YmItMTczMi00NGMzLWExMzItMWU2MmRkY2ExMDMz" />
+
+<script type="text/javascript" charset="utf-8" nonce="N2M5NmI1YmItMTczMi00NGMzLWExMzItMWU2MmRkY2ExMDMz">...</script>
+```
+
+发现有几个特点：
+
+1. 只有 link / script / style 标签会出现 nonce 字段，其它标签没有。
+2. 页面中标签的 nonce 字段值是一样的。
+3. 每次刷新页面后，nonce 字段的值都会变化。
+
+不禁好奇 nonce 字段的含义，搜索后了解到这是在开启了内容安全策略（CSP）的情况下，**用于防止 XSS 攻击的**：
+
+1. 通过 `Content-Security-Policy` 的 HTTP 响应头或 HTML 的 `<meta>` 标签开启了 CSP 后，默认禁止内联代码的执行。
+2. 如果一定需要内联代码的执行，有三种方式：
+    - 将 CSP 策略设置为 `unsafe-inline` 这样允许内联代码的执行，但是就会降低一定安全性。
+    - `hash`:  在内联的 script / style 等标签中添加 `hash` 字段，并且指定 `Content-Security-Policy: script-src 'sha256-yyyy'`。
+    - `nonce`: 在内联的 script / style 等标签中添加 `nonce` 字段，并且指定 `Content-Security-Policy: script-src 'nonce-xxxx'`。
+
+其中 hash / nonce 的主要区别在于：每一个内联标签的 `hash` 值都不一样（因为是根据内联标签的内容计算得出），而 `nonce` 则是一个随机字符串，一次请求中，页面的每一个内联元素都会有一个相同的值。
+
+参考文档：
+
+1. [MDN - CSP unsafe_inline_script](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script)
+2. [掘金 - Content Security Policy (CSP) 介绍](https://juejin.cn/post/6844903665224908807)
 
 <Vssue title="前端基础知识" />
