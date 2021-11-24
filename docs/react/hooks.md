@@ -1,3 +1,30 @@
+# React Hook
+
+## Hook 思想
+
+今天看到一个不错的视频，从自变量 - 因变量 - 标记变量的维度来介绍 hook，将常用的 hook 分为了三类：
+
+1. 自变量 hook：
+    - useState
+    - useReducer
+    - useContext
+2. 因变量 hook：
+    - useEffect
+    - useMemo
+    - useCallback
+3. 标记标量：
+    - useRef
+
+其中把 `useRef` 称为标记变量的说法很有意思，因为它并不会自己主动改变，也不会因 state 的值而改变，而仅仅是在标记 render 过程中的值（例如标记 render 的次数 / render 至 DOM 上的节点等）。
+
+视频中的图片展示的很清楚：
+
+![自变量 - 因变量 - 标记变量关系](./public/hook-classify.jpg)
+
+![自变量 - 因变量 - 标记变量分类](./public/hook-connection.jpg)
+
+推荐看看原视频 [9分钟掌握React Hooks正确认知](https://www.bilibili.com/video/BV1JU4y1E73v)
+
 ## Hook 使用指南
 
 ### useRef
