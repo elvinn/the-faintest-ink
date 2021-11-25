@@ -125,6 +125,7 @@ module.exports = {
       '/react/': [
         'problems',
         'hooks',
+        'version-update',
       ],
       '/vue/': [
         'usage',
