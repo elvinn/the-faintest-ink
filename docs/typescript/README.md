@@ -21,7 +21,7 @@ async function getZipFile(name: string, files: File[]): Promise<File> {
 
 ### 前端项目
 
-对于前端的项目，一般会通过 Webpack 进行构建，那么可以结合它的能力 [Code Splitting - Dynamic Imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) 来做按需加载。
+对于前端的项目，一般会通过 Webpack 进行构建，那么可以结合它的能力 [Code Splitting - Dynamic Imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) 来做按需加载。
 
 ``` ts
 async function loadLodash() {
@@ -238,5 +238,22 @@ const actionToFuncMap: {
   [Action.DELETE_ITEM]: handleDeleteItem,
 }
 ```
+
+## 获取字符串常量数组值的 union 类型
+
+假设我们有一个数组 `const keys = ['name', 'age']`，然后希望获取这个数组的值的 union 类型，也就是 `name | age` 的话，可以这么写：
+
+``` ts
+// keys 会被推断为 readonly ["name", "age"]
+const keys = ['name', 'age'] as const;
+
+// valueUnion 是 'name' | 'age'
+type valueUnion = typeof keys[number];
+```
+
+在上述代码中，起关键作用的有两点：
+
+1. 对字面量使用 `as const`，ts 会按最严格的类型进行推断并加上 readonly 属性，可以参考 [官方文档 - const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions)
+2. 对数组使用 typeof keys[number]，可以获取到这个数组所有元素的联合类型
 
 <Vssue title="TypeScript 使用" />
