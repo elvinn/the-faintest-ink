@@ -6,7 +6,7 @@
 
 首先来看一段代码：
 
-``` cpp
+```cpp
 class Test {
     int * arr{nullptr};
 public:
@@ -65,7 +65,7 @@ destructor
 
 利用右值引用，我们可以实现如下的移动构造函数：
 
-``` cpp {12-15}
+```cpp {12-15}
 class Test {
     int * arr{nullptr};
 public:
@@ -90,7 +90,7 @@ public:
 
 当再次执行之前提到的代码时候：
 
-``` cpp
+```cpp
 Test createTest() {
     return Test();
 }
@@ -102,7 +102,7 @@ int main() {
 
 它的输出是：
 
-``` {2,4}
+```{2,4}
 default constructor
 move constructor
 destructor

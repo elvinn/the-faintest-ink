@@ -6,7 +6,7 @@
 
 函数返回值类型为 `void` 时，表示返回值可以是 `null`（当没有开启 --strictNullChecks 编译选项）或者`undefined`（没有 `return` 语句时返回值也为 `undefined`）。
 
-``` ts
+```ts
 function warnUser1(): void {
   console.log("This is my warning message");
 }
@@ -24,7 +24,7 @@ function warnUser3(): void {
 
 函数返回值类型为 `never` 时，表示函数永远不会正常返回，例如一定抛出异常或者陷入死循环中。
 
-``` ts
+```ts
 function error(message: string): never {
   throw new Error(message); 
 }
@@ -39,7 +39,7 @@ function infiniteLoop(): never {
 
 Number Enum 和 String Enum 分别指的是值为 number 类型和值为 string 类型的枚举，例如：
 
-``` ts
+```ts
 // Direction_A 是 String Enum
 enum Direction_A {
   Up = 1,
@@ -59,7 +59,7 @@ enum Direction_B {
 
 两者的关键区别在 **Number Enum 会做反向映射（reverse mappings），而 String Enum 则不会**，例如对于下面的代码：
 
-``` ts{7,8}
+```ts{7,8}
 // 一个 Number Enum
 enum Enum_Test {
   A,
@@ -72,7 +72,7 @@ let nameOfA = Enum_Test[a]; // "A"
 
 它会被翻译成如下的 js 代码：
 
-``` js{3-5}
+```js{3-5}
 "use strict";
 var Enum_Test;
 (function (Enum_Test) {
@@ -87,7 +87,7 @@ let nameOfA = Enum_Test[a]; // "A"
 
 不过对于 String Enum，并不会存在这样的行为，例如：
 
-``` ts
+```ts
 // 一个 String Enum
 enum Enum_Test {
   GREEN = 'Green',
@@ -116,7 +116,7 @@ var Enum_Test;
 
 在上文中已经看到 Enum 被翻译成 js 代码后，是会有相对应的对象变量的。而对于 Const Enum 而言，会在编译时直接进行值的替换，仅能从注释中看出是从 Enum 元素：
 
-``` ts
+```ts
 const enum Enum_Test {
   GREEN = 'Green',
 }

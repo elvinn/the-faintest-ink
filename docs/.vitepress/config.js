@@ -1,7 +1,6 @@
 export default {
   title: '烂笔头',
   description: '好记性不如烂笔头',
-  base: '/notes/',
   lang: 'zh-CN',
   dest: 'dist',
   lastUpdated: '上次更新时间',

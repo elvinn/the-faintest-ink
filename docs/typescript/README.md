@@ -9,7 +9,7 @@
 
 从 TS 2.4 版本开始，支持写如下代码进行动态引入：
 
-``` ts
+```ts
 async function getZipFile(name: string, files: File[]): Promise<File> {
   const zipUtil = await import('./utils/create-zip-file');
   const zipContents = await zipUtil.getContentAsBlob(files);
@@ -23,7 +23,7 @@ async function getZipFile(name: string, files: File[]): Promise<File> {
 
 对于前端的项目，一般会通过 Webpack 进行构建，那么可以结合它的能力 [Code Splitting - Dynamic Imports](https://webpack.js.org/guides/code-splitting/#dynamic-imports) 来做按需加载。
 
-``` ts
+```ts
 async function loadLodash() {
   const package = await import(/* webpackChunkName: "lodash" */ 'lodash');
   return package.default;
@@ -32,7 +32,7 @@ async function loadLodash() {
 
 相应的 `tsconfig.json` 中 `module` 字段要配置成 `esnext`，从而保证 `import` 在编译后仍保留 `import` 的形式，而不是被变成了 `Promise.resolve()`，从而能让 webpack 识别，一个简单的例子如下：
 
-``` json
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -47,7 +47,7 @@ async function loadLodash() {
 
 对于 Node.js 项目而言，其实可以直接写 `require` 来实现按需引入，例如加载指定目录下的所有模块可以按如下方式：
 
-``` ts
+```ts
 const getDirModules = (dirName: string) => {
   const files = fs.readdirSync(dirName);
   const modules = files.map((file) => require(path.join(dirName, file)));
@@ -57,7 +57,7 @@ const getDirModules = (dirName: string) => {
 
 虽然这种方式十分简单，不过 `require` 并不是 Typescript 的一部分，运用 `Dynamic Import` 的话可以改写成如下代码：
 
-``` ts
+```ts
 const getDirModules = async (dirName: string) => {
   const files = fs.readdirSync(dirName);
   const importPromises = files.map(async (file) => import(path.join(dirName, file)));
@@ -69,7 +69,7 @@ const getDirModules = async (dirName: string) => {
 相应的 `tsconfig.json` 中 `module` 字段配置成 `commonjs`，表示编译成 Node.js 项目，一个简单的例子如下：
 
 
-``` json
+```json
 {
   "compilerOptions": {
     "target": "es2017",
@@ -89,7 +89,7 @@ const getDirModules = async (dirName: string) => {
 
 例如可以将已有的 `User` 类型、`Admin` 类型组合出 `Person` 类型：
 
-``` ts{13}
+```ts{13}
 interface User {
   name: string;
   age: number;
@@ -109,7 +109,7 @@ type Person = User | Admin;
 
 假如我们通过如下的 `logPerson` 函数打印 `Person` 类型的变量：
 
-``` ts {3,4,6}
+```ts {3,4,6}
 function logPerson(person: Person) {
   let additionalInformation: string;
   if (person.role) {
@@ -125,7 +125,7 @@ function logPerson(person: Person) {
 
 在这种情况下，可以通过 `in` 操作符来帮助缩小类型的范围，将 `Person` 缩小到 `User` 类型或者 `Admin` 类型：
 
-``` ts {3,6}
+```ts {3,6}
 function logPerson(person: Person) {
   let additionalInformation: string;
   if ('role' in person) {
@@ -143,7 +143,7 @@ function logPerson(person: Person) {
 
 除了直接使用 `in` 操作符外，也可以使用类型推断（type predicates），也就是将相关判断写成函数，然后返回值的类型写成 `person is Admin` / `person is User`：
 
-``` ts{1,5,11,15}
+```ts{1,5,11,15}
 function isAdmin(person: Person): person is Admin {
   return  (person as Admin).role !== undefined;
 }
@@ -176,7 +176,7 @@ function logPerson(person: Person) {
 
 在开发中常见的场景是用枚举定义操作的类型，然后使用一个空对象将操作的类型和其处理函数对应起来，例如：
 
-``` ts{19}
+```ts{19}
 enum Action {
   ADD_LIST = 'ADD_LIST',
   DELETE_LIST = 'QUERY_LIST',
@@ -225,7 +225,7 @@ const actionToFuncMap = {
 
 但是这种做法不太好，因为就算用不到的类型也需要将它写出来。更好的方式是通过 **可选属性** 与 `in` 操作符结合使用：
 
-``` ts
+```ts
 // 推荐做法：可选属性与 in 操作符结合
 interface ItemHandler {
   (): void;
@@ -243,7 +243,7 @@ const actionToFuncMap: {
 
 假设我们有一个数组 `const keys = ['name', 'age']`，然后希望获取这个数组的值的 union 类型，也就是 `name | age` 的话，可以这么写：
 
-``` ts
+```ts
 // keys 会被推断为 readonly ["name", "age"]
 const keys = ['name', 'age'] as const;
 

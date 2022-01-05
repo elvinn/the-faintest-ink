@@ -31,7 +31,7 @@
 
 1. 在有一个通过微信认证的公众号前提下，使用 [JSSDK 分享接口](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#111) 自定义分享的内容：
 
-``` js
+```js
 wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
   wx.updateAppMessageShareData({ 
     title: '', // 分享标题
@@ -47,7 +47,7 @@ wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
 
 2. 分享的标题会自动抓取页面的 `title`，缩略图会自动抓取网页的第一张图片，所以可以通过如下方式注入缩略图：
 
-``` html
+```html
 <!-- 该方法已失效 -->
 <div id='wx_pic' style='margin:0 auto;display:none;'>
   <img src="/path/图片路径" alt="微信分享缩略图" />

@@ -36,7 +36,7 @@ CAS(compare and swap) 即比较并替换，主要用于线程并发，有以下�
 
 具体来说， CAS 将内存中的值与指定数据进行比较，当数值一样时将内存中的数据替换为新的值，在 C 中可以通过如下代码实现:
 
-``` c
+```c
 int compare_and_swap(int* reg, int oldVal, int newVal) {
   ATOMIC();
   int oldRegVal = *reg;
@@ -51,7 +51,7 @@ int compare_and_swap(int* reg, int oldVal, int newVal) {
 
 通过 CAS，我们可以实现一个线程并发安全的加法:
 
-``` c
+```c
 int add(int* p, int a) {
   int isDone = 0;
   int value = *p;

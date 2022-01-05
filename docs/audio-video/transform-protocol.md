@@ -58,7 +58,7 @@ op_parse_media_playlist(bottom)->op_download_ts(bottom)->end
 
 首先来看一个 `master playlist` 的例子，分别在第 3、5、7 行，通过 `BANDWIDTH=399580,RESOLUTION=1136x480` 这种方式，指出了在不同带宽和分辨率下应该请求的 `media playlist` 地址。
 
-``` {3,5,7}
+```{3,5,7}
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=0,BANDWIDTH=399580,RESOLUTION=1136x480

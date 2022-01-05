@@ -54,7 +54,7 @@
 
 `package-lock.json` 中一个典型的包信息如下：
 
-``` json
+```json
 {
     "eslint": {
         "version": "6.8.0",

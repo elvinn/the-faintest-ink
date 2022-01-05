@@ -4,7 +4,7 @@
 
 如果一个对象有 `next` 方法，而且这个方法返回的对象包含 `done` 和 `value` 这两个属性，那么就可以称它是迭代器（iterator）：
 
-``` js{6,7,10,15}
+```js{6,7,10,15}
 function makeRangeIterator(start = 0, end = Infinity, step = 1) {
   let nextIndex = start;
   let iterationCount = 0;
@@ -40,7 +40,7 @@ console.log("Iterated over sequence of size: ", result.value); // 5
 
 如果一个对象的 `Symbol.iterator` 属性是一个函数，它的返回值是迭代器的话，那么就可以称它为可迭代对象，可以通过 `for ... of ...` 进行遍历：
 
-``` js{2-4,6}
+```js{2-4,6}
 // makeRangeIterator 是上文中的函数
 const iterableObj = {
   [Symbol.iterator]: () => makeRangeIterator(1, 10, 2),
@@ -55,7 +55,7 @@ for (const value of iterableObj) {
 
 类似于可迭代对象，如果一个对象的 `Symbol.asyncIterator` 属性是一个异步函数，它的返回值是异步迭代器的话，那么就可以称它为可迭代对象，可以通过 `for await ... of ...` 进行遍历：
 
-``` js{7,25-27,29}
+```js{7,25-27,29}
 function makeAsyncRangeIterator(start = 0, end = Infinity, step = 1) {
   let nextIndex = start;
   let iterationCount = 0;

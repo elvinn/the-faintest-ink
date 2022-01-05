@@ -8,7 +8,7 @@
 
 例如存在一个 `<submit-button>` 组件：
 
-``` vue
+```vue
 <button type="submit">
   <slot>Submit</slot>
 </button>
@@ -30,7 +30,7 @@
 
 例如刚刚的 `<submit-button />` 需要进行升级，让其除了能让外部传入文本之外，还支持传入图标，那么可以进行如下变更：
 
-``` vue
+```vue
 <button type="submit">
   <slot name="icon"></slot>
   <slot>Submit</slot>
@@ -39,7 +39,7 @@
 
 使用的时候，通过在 `<template>` 元素上使用 `v-slot` 指令指定相应的名称：
 
-``` vue {3}
+```vue {3}
 <!-- 传入文案的同时，传入 icon -->
 <submit-button>
   <template v-slot:icon>
@@ -66,7 +66,7 @@
 
 设想一个带有如下模板的 `<current-user>` 组件，可以将子组件中的数据作为 `<slot>` 元素的一个属性绑定上去：
 
-``` vue {2}
+```vue {2}
 <span>
   <slot v-bind:user="user">
     {{ user.lastName }}
@@ -76,7 +76,7 @@
 
 现在就可以在父组件中的，通过作用域插槽访问到子组件的数据：
 
-``` vue {2,8,13}
+```vue {2,8,13}
 <current-user>
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
@@ -98,7 +98,7 @@
 
 有的时候会看到通过 `:attr="xxx"` 的方式传值，有的时候也会看到去掉省略号的方式 `attr="yyy"` 传值，那么这两者有什么区别呢？
 
-``` vue
+```vue
 <user-info
   :name="username"
   age="24"
@@ -109,7 +109,7 @@
 
 例如对于如下实现的子组件 `<user-info>`：
 
-``` vue
+```vue
 <template>
   <div>
     Hello {{name}}, your age is {{age}}. <br>
@@ -122,7 +122,7 @@
 
 当在父组件中进行如下调用时：
 
-``` vue
+```vue
 <template>
   <div id="app">
     <user-info :name="username" age="24" />
@@ -148,7 +148,7 @@ export default {
 
 渲染结果为:
 
-``` html
+```html
 Hello elvinn, your age is 24. 
 Prop name type is string. 
 Prop age type is string. 

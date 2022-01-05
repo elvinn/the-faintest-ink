@@ -24,7 +24,7 @@ Node.js 使用的是 V8 引擎，会自动进行垃圾回收（Garbage Collectio
 
 我们可以通过下面代码简单的观察 Node.js 内存使用情况：
 
-``` js
+```js
 const format = function (bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
 };
@@ -71,7 +71,7 @@ console.log(JSON.stringify({
 
 没有使用 `var/let/const` 声明的变量会直接绑定在 Global 对象上（Node.js 中）或者 Windows 对象上（浏览器中），哪怕不再使用，仍不会被自动回收：
 
-``` js
+```js
 function test() {
   x = new Array(100000);
 }
@@ -86,7 +86,7 @@ console.log(x);
 
 闭包引发的内存泄漏往往非常隐蔽，例如下面这段代码你能看出来是哪儿里有问题吗？
 
-``` js
+```js
 let theThing = null;
 let replaceThing = function() {
   const newThing = theThing;
@@ -112,7 +112,7 @@ setInterval(replaceThing, 100);
 
 对于上面这个问题有一个很巧妙的解决方法：通过引入新的块级作用域，将 `newThing` 的声明、使用与外部隔离开，从而打破共享，阻止循环引用。
 
-``` js {3,8}
+```js {3,8}
 let theThing = null;
 let replaceThing = function() {
   {
@@ -137,7 +137,7 @@ setInterval(replaceThing, 100);
 
 这里通过 `{ ... }` 形成了单独的块级作用域，而且在外部没有引用，从而 `newThing` 在 GC 的时候会被自动回收，例如在我的电脑运行这段代码输出如下：
 
-``` {7}
+```{7}
 2097128
 2450104
 2454240
@@ -152,7 +152,7 @@ setInterval(replaceThing, 100);
 
 事件绑定导致的内存泄漏在浏览器中非常常见，一般是由于事件响应函数未及时移除，导致重复绑定或者 DOM 元素已移除后未处理事件响应函数造成的，例如下面这段 React 代码：
 
-``` jsx{2-6}
+```jsx{2-6}
 class Test extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', function() {
@@ -168,7 +168,7 @@ class Test extends React.Component {
 
 `<Test />` 组件在挂载的时候监听了 `resize` 事件，但是在组件移除的时候没有处理相应函数，假如 `<Test />` 的挂载和移除非常频繁，那么就会在 window 上绑定很多无用的事件监听函数，最终导致内存泄漏。可以通过如下的方式避免这个问题：
 
-``` jsx{8-10}
+```jsx{8-10}
 class Test extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
@@ -191,7 +191,7 @@ class Test extends React.Component {
 
 通过 Object/Map 的内存缓存可以极大地提升程序性能，但是很有可能未控制好缓存的大小和过期时间，导致失效的数据仍缓存在内存中，导致内存泄漏：
 
-``` js
+```js
 const cache = {};
 
 function setCache() {
@@ -216,7 +216,7 @@ setInterval(setCache, 100);
 
 接下来通过上文中闭包引用里内存泄漏的例子，来实际操作一把。首先 `npm install heapdump` 安装后，修改代码为下面的样子：
 
-``` js{3,22}
+```js{3,22}
 // 一段存在内存泄漏问题的示例代码
 const heapdump = require('heapdump');
 

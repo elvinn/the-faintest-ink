@@ -6,7 +6,7 @@
 
 Javascript 中内置的 `Date` 日期模块一直饱受诟病，所以才会有 [moment](https://github.com/moment/moment) / [dayjs](https://github.com/iamkun/dayjs) 等优秀的日期库出现。最近刚好学习到了原生日期模块的一个冷知识，你觉得下面这段代码表示的是同一个时间点吗？
 
-``` js
+```js
 const date1 = new Date('2020-11-03')
 const date2 = new Date('2020.11.03')
 const date3 = new Date('2020 11 03')
@@ -17,7 +17,7 @@ const date4 = new Date(2020, 11, 03)
 
 上面的例子中，输出日期后可以得到如下结果：
 
-``` js
+```js
 const date1 = new Date('2020-11-03') // 2020-11-03T00:00:00.000Z
 const date2 = new Date('2020.11.03') // 2020-11-02T16:00:00.000Z
 const date3 = new Date('2020 11 03') // 2020-11-02T16:00:00.000Z
@@ -39,7 +39,7 @@ const date4 = new Date(2020, 11, 03) // 2020-12-02T16:00:00.000Z
 
 另外需要注意的是，通过 `Object.create(null)` 创建的对象，由于没有原型，所以诸如 `hasOwnProperty` / `toString` 等方法都无法直接调用：
 
-``` js
+```js
 const obj = Object.create(null)
 obj.name = 'test-obj'
 
@@ -54,7 +54,7 @@ Object.prototype.toString.call(obj) // '[object Object]'
 
 面试题很喜欢考察的一个点是 `load/DomContentLoaded/readystatechange` 事件之间有什么区别，并讲出它们的执行顺序，例如你能说出下面代码的输出吗？
 
-``` html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +89,7 @@ load
 
 另外监听这些事件一般都是为了在页面加载完成后执行相应的 JavaScript 代码，我更喜欢的方法是将这段代码放在 HTML 的尾部：
 
-``` html
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +116,7 @@ load
 
 对于前端代码而言，必须要考虑的一个问题就是兼容性，为了实现一个功能，时常需要针对不同的浏览器环境编写不同的代码。例如一个简单的事件绑定函数如下所示：
 
-``` js
+```js
 function bindEvent(element, eventName, handler) {
   if (document.addEventListener) {
     element.addEventListener(eventName, handler);
@@ -140,7 +140,7 @@ function bindEvent(element, eventName, handler) {
 
 相应的代码如下：
 
-``` js
+```js
 // 方式一：在函数定义时，通过自执行函数就完成逻辑判断
 const bindEvent = (element, eventName, handler) {
   if (document.addEventListener) {
@@ -161,7 +161,7 @@ const bindEvent = (element, eventName, handler) {
 }()
 ```
 
-``` js
+```js
 // 方式二：在函数第一次执行时，进行逻辑判断覆盖函数本身
 const bindEvent = (element, eventName, handler) {
   if (document.addEventListener) {
@@ -186,7 +186,7 @@ const bindEvent = (element, eventName, handler) {
 
 在初始化一个 `[0, 1, 2, 3, 4, 5, 6, 7]` 数组的时候，我写出了如下代码：
 
-``` js
+```js
 const array = new Array(8).map((_, index) => index);
 ```
 
@@ -194,7 +194,7 @@ const array = new Array(8).map((_, index) => index);
 
 实际上这里 `array` 是一个**稀疏数组（sparse array）**，就是索引不连续，数组长度大于元素个数的数组，也就是有空隙的数组，可以通过如下五种方式产生：
 
-``` js
+```js
 // 1. 直接使用 new Array
 const arrA = new Array(8);
 
@@ -216,7 +216,7 @@ delete arrE[1];
 
 对于这类稀疏数组，用 ES6 `map/forEach` 等方法遍历的时候，会跳过其中的 `empty` 元素：
 
-``` js
+```js
 const arrB = [1, 2,, 3];
 console.log(arrB.length);
 // 输出 4
@@ -232,7 +232,7 @@ for (let i = 0; i < arrB.length; i++) {
 
 回到最开始的问题，假如想初始化一个 `[0, 1, 2, 3, 4, 5, 6, 7]` 数组的时候，有什么简单的方法呢？我们可以使用 `Array.from` 来实现这个效果：
 
-``` js
+```js
 Array.from({ length: 8 }, (_, i) => i);
 ```
 
@@ -318,7 +318,7 @@ JSON.stringify(foo); // 抛出异常 Do not know how to serialize a BigInt
 
 在打开 [twitter.com](https://twitter.com/) 看源码时，发现在 HTML 中有大量的如下内联代码：
 
-``` html
+```html
 <link rel="preload" as="script" crossorigin="anonymous" href="xxx.js" nonce="N2M5NmI1YmItMTczMi00NGMzLWExMzItMWU2MmRkY2ExMDMz" />
 
 <script type="text/javascript" charset="utf-8" nonce="N2M5NmI1YmItMTczMi00NGMzLWExMzItMWU2MmRkY2ExMDMz">...</script>

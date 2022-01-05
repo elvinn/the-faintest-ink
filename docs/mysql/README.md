@@ -4,7 +4,7 @@
 
 从功能上而言，两者都可以用于修改表的字段，其中 `CHANGE` 相较于 `MODIFY` 而言，多了一个给字段重命名的能力。同时也是由于多的这个能力，导致两者在语法格式上稍有不同：
 
-``` sql
+```sql
 ALTER TABLE t1 CHANGE col_a col_a BIGINT NOT NULL; # 使用 CHANGE
 
 ALTER TABLE t1 MODIFY col_a BIGINT NOT NULL; # 使用 MODIFY
@@ -29,7 +29,7 @@ ALTER TABLE t1 MODIFY col_a BIGINT NOT NULL; # 使用 MODIFY
 
 `HAVING` 可以起到与 `WHERE` 类似的查询作用，不同之处在于 `HAVING` 可以与聚合函数（SUM/COUNT/MIN/MAX/AVG 等）一起使用，而 `WHERE` 不行。
 
-``` sql{7}
+```sql{7}
 -- 统计年薪大于 40 万的员工
 SELECT
     name,
@@ -64,7 +64,7 @@ HAVING SUM(month_salary) > 400000;
 
 一个完整的例子如下：
 
-``` sql
+```sql
 SELECT 
     CASE
         WHEN GROUPING(warehouse) = 1 THEN '合计'

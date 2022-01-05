@@ -4,7 +4,7 @@
 
 在视图层，我们经常需要根据不同的状态进行不同的展示，例如加载中、加载成功、加载失败对应不同的展示。比较好的实践是将这些状态抽取成常量进行统一维护，那在 template 中该如何使用的这些常量实现如下的效果呢？
 
-``` vue
+```vue
 <div v-if="loginState === LOGIN_STATE.LOADING">正在登陆中...</div>
 <div v-else-if="loginState === LOGIN_STATE.FAILED">登录失败，请稍后重试</div>
 <div v-else-if="loginState === LOGIN_STATE.SUCCESS">登录成功</div>
@@ -16,7 +16,7 @@
 
 简单的方式就是将常量直接当作普通的 data 变量来使用：
 
-``` vue {9-11}
+```vue {9-11}
 <script>
 const LOGIN_STATE = {
   LOADING: 0,
@@ -39,7 +39,7 @@ export default {
 
 在 `created` 生命周期中执行也可以将数据绑定在组件实例上。并且因为 `created` 执行的时候，组件的响应式绑定阶段已经结束了，从而避免了在 `data` 中直接绑定带来的问题。
 
-``` vue {3-5}
+```vue {3-5}
 <script>
 export default {
   created () {

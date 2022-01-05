@@ -8,7 +8,7 @@
 
 不过某些研发环境无法使用 whistle，这个时候可以直接关闭 Chrome 的 CORS 检查：
 
-``` shell
+```shell
 open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/<username>/MyChromeDevUserData/
 ```
 

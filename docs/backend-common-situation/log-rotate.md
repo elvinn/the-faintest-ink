@@ -77,7 +77,7 @@ function reload() {
 
 Node.js 中，pm2 使用的是这种方式：
 
-``` js
+```js
 function proceed(file) {
   var final_time = moment().format(DATE_FORMAT);
   var final_name = file.substr(0, file.length - 4) + '__' + final_time + '.log';

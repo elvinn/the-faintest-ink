@@ -10,7 +10,7 @@
 2. 迭代器遍历
 3. 语法糖 `:` 遍历
 
-``` cpp
+```cpp
 vector<int> a = {1, 2, 3};
 
 // 方法一：下标遍历
@@ -48,7 +48,7 @@ cout << endl;
 
 在对两个 vector 用 `==` 做相等判断时，会先比较两个 vector 的 size 是否相同，若相同会再对每一个元素用 `==` 做判断。
 
-``` cpp {3,7}
+```cpp {3,7}
 vector<int> a = {1, 2, 3};
 vector<int> b = {1, 2, 3};
 assert(a == b);

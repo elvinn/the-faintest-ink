@@ -39,7 +39,7 @@ flv（即 Flash Video）是由 Adobe 公司推出的一种封装格式，它的�
 
 由于封装格式只是对视频信息的组织方式不同，和视频本身的编码并不相关，所以在不同的视频文件之间可以无损转换。例如，可以通过下列命令将 `test.mp4` 文件转换为 `test.flv` 文件:
 
-``` shell
+```shell
 ffmpeg -i test.mp4 -c:v copy -c:a copy test.flv
 ```
 
