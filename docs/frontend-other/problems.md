@@ -23,7 +23,7 @@
 
 在微信中分享自己的笔记时，发现仅能展示标题，无法自动爬取文章内容和缩略图，显示效果比较丑陋。
 
-![微信分享效果](../public/wechat-share-empty.jpeg)
+![微信分享效果](./public/wechat-share-empty.jpeg)
 
 ### 原因
 
@@ -76,7 +76,7 @@ wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
   stacking context</a> by Elvin Peng (<a href="https://codepen.io/elvinn">@elvinn</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<ClientOnly><CodePen /></ClientOnly>
 
 在 Chrome 中子元素的内容不会溢出父元素（因为 `overflow:hidden`），而在 Safari 中却会溢出：
 

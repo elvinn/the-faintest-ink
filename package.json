@@ -4,9 +4,9 @@
   "description": "The faintest ink is more powerful than the strongest memory",
   "main": "README.md",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs --port 3001",
     "deploy": "rm -rf ./**/.DS_Store && cloudbase hosting:deploy dist /notes -e elvinn-1aa07a"
   },
   "keywords": [
@@ -20,8 +20,7 @@
   },
   "devDependencies": {
     "@cloudbase/cli": "^0.8.1",
-    "@vssue/api-github-v3": "^1.4.4",
-    "@vssue/vuepress-plugin-vssue": "^1.4.6",
+    "stylus": "^0.56.0",
     "vitepress": "^0.20.10"
   },
   "dependencies": {
