@@ -45,7 +45,7 @@ module.exports = {
           },
           {
             text: 'TypeScript',
-            link: '/typescript/',
+            link: '/typescript/situation',
           },
           {
             text: 'Node.js',
@@ -135,7 +135,7 @@ module.exports = {
         'problems',
       ],
       '/typescript/': [
-        '',
+        'situation',
         'problems',
         'basic',
       ],
