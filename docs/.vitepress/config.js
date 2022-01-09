@@ -1,6 +1,6 @@
 export default {
   title: '烂笔头',
-  description: '好记性不如烂笔头',
+  description: '好记性不如烂笔头 ｜ elvinn 的个人博客',
   lang: 'zh-CN',
   logo: '/logo.jpeg',
   dest: 'dist',
