@@ -1,9 +1,9 @@
-export default {
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
   title: '烂笔头',
   description: '好记性不如烂笔头 ｜ elvinn 的个人博客',
   lang: 'zh-CN',
-  logo: '/logo.jpeg',
-  dest: 'dist',
   themeConfig: {
     lastUpdated: '上次更新时间',
     editLinks: true,
@@ -236,4 +236,4 @@ export default {
       }],
     },
   },
-};
+});
