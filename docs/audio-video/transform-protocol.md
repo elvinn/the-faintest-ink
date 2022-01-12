@@ -33,21 +33,7 @@ HLS 的全称是 HTTP Live Streaming，翻译下就是基于 HTTP 的流媒体�
 
 客户端在看视频的时候，会先请求 M3U8 文件，然后再根据网络状况、设备分辨率等来加载对应的视频切片，整体流程如下：
 
-@flowstart
-start=>start: 开始
-op_fetch_master_playlist=>operation: 请求 M3U8 格式的 master playlist
-op_parse_master_palylist=>operation: 解析数据，得到适用不同带宽、分辨率的 media playlist（同样是 M3U8 格式）
-op_fetch_media_playlist=>operation: 根据设备状况，请求对应的 media playlist
-op_parse_media_playlist=>operation: 解析数据，得到不同分片对应的 HTTP 连接
-op_download_ts=>operation: 下载分片并播放
-end=>end: 结束
-
-start(bottom)->op_fetch_master_playlist(bottom)->op_parse_master_palylist
-op_parse_master_palylist(bottom)->op_fetch_media_playlist(bottom)->op_parse_media_playlist
-op_parse_media_playlist(bottom)->op_download_ts(bottom)->end
-@flowend
-
-
+![M3U8 流程](./public/m3u8-flow.jpg)
 
 ### M3U8 文件
 
