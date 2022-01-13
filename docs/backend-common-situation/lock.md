@@ -10,23 +10,7 @@
 
 该方法通常会在数据表中加上一个版本号 version 字段，进行读写操作时按如下步骤进行：
 
-@flowstart
-start=>start: 开始
-op_read=>operation: 读取数据（version_A）
-op_write=>operation: 准备写数据（version_B）
-cond=>condition: 更新数据
-  set version = version_B 
-  where version = version_A
-success=>operation: 写成功
-fail=>operation: 写失败，进行回滚或重试
-end=>end: 结束
-
-start(bottom)->op_read(bottom)->op_write(bottom)->cond
-cond(yes)->success(bottom)->end
-cond(no)->fail(right)->end
-@flowend
-
-
+![DB 版本号锁机制](./public/db-version-lock.jpg)
 ### CAS 算法
 
 CAS(compare and swap) 即比较并替换，主要用于线程并发，有以下特点：
