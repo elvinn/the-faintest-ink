@@ -7,10 +7,12 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs --port 3001",
-    "deploy": "rm -rf ./**/.DS_Store && cloudbase hosting:deploy dist /notes -e elvinn-1aa07a"
+    "login": "tcb login",
+    "deploy": "rm -rf ./**/.DS_Store && tcb hosting deploy docs/.vitepress/dist / -r gz -e elvinn-wiki-4gnjxp8xdcf6f5a5"
   },
   "keywords": [
-    "note"
+    "note",
+    "wiki"
   ],
   "author": "elvin.pjw@gmail.com",
   "license": "MIT",
@@ -19,7 +21,7 @@
     "url": "git+https://github.com/elvinn/the-faintest-ink.git"
   },
   "devDependencies": {
-    "@cloudbase/cli": "^0.8.1",
+    "@cloudbase/cli": "^1.12.0",
     "stylus": "^0.56.0",
     "vitepress": "^0.20.10"
   },
