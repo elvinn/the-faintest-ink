@@ -238,6 +238,8 @@ export default defineConfig({
   },
   head: [
     // 百度统计脚本，https://tongji.baidu.com/
-    ['script', {}, `var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.defer = true; hm.src = "https://hm.baidu.com/hm.js?52f7e9c204c79cd3e7f026f6159474b6"; document.body.appendChild(hm); })();`]
+    ['script', {}, `var _hmt = _hmt || []; window.addEventListener('DOMContentLoaded', function() {var hm = document.createElement("script"); hm.defer = true; hm.src = "https://hm.baidu.com/hm.js?52f7e9c204c79cd3e7f026f6159474b6"; document.body.appendChild(hm); })`],
+    // Google Analytics https://analytics.google.com/analytics/web/
+    ['script', {}, `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-N1LGFG6F48'); window.addEventListener('DOMContentLoaded', function() {var g = document.createElement("script"); g.defer = true; g.src = "https://www.googletagmanager.com/gtag/js?id=G-N1LGFG6F48"; document.body.appendChild(g);})`],
   ]
 });
