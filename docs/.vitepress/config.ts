@@ -91,6 +91,10 @@ export default defineConfig({
         text: '阅读',
         items: [
           {
+            text: '2022',
+            link: '/reading/2022',
+          },
+          {
             text: '2021',
             link: '/reading/2021',
           },
@@ -223,6 +227,7 @@ export default defineConfig({
       '/reading/': [{
         text: '阅读',
         children: [
+          { text: '2022 阅读记录', link: '/reading/2022' },
           { text: '2021 阅读记录', link: '/reading/2021' },
           { text: '2020 阅读记录', link: '/reading/2020' },
         ]
