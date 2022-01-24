@@ -44,7 +44,7 @@ HAVING SUM(month_salary) > 400000;
 `ROLLUP / CUBE` 用于聚类汇总数据，可以根据维度在分组的结果集中进行聚合操作，两者仅有细微差别：
 
 - 在只对一个维度进行聚合时，`ROLLUP / CUBE` 结果是一样的
-- 在对多个维度进行聚合时，`CUBE` 是按所有的可能进行汇总，而 `CUBE` 是按照指定的顺序进行有优先级地进行汇总：
+- 在对多个维度进行聚合时，`CUBE` 是按所有的可能进行汇总，而 `ROLLUP` 是按照指定的顺序进行有优先级地进行汇总：
     - `ROLLUP (YEAR, MONTH, DAY)`
       - YEAR, MONTH, DAY
       - YEAR, MONTH
