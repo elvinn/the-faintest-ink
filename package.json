@@ -7,8 +7,9 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs --port 3001",
+    "gulp": "gulp",
     "login": "tcb login",
-    "deploy": "rm -rf ./**/.DS_Store && tcb hosting deploy docs/.vitepress/dist / -r gz -e elvinn-wiki-4gnjxp8xdcf6f5a5"
+    "deploy": "npm run gulp && tcb hosting deploy docs/.vitepress/dist / -r gz -e elvinn-wiki-4gnjxp8xdcf6f5a5"
   },
   "keywords": [
     "note",
@@ -22,6 +23,9 @@
   },
   "devDependencies": {
     "@cloudbase/cli": "^1.12.0",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^8.0.0",
     "stylus": "^0.56.0",
     "vitepress": "^0.20.10"
   },
