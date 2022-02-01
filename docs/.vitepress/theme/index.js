@@ -6,6 +6,7 @@ import RightText from '../components/RightText.vue'
 import Vssue from '../components/Vssue.vue'
 import Badge from '../components/Badge.vue'
 import CodePen from '../components/CodePen.vue'
+import Rating from '../components/Rating.vue'
 
 import './custom.css'
 
@@ -18,5 +19,6 @@ export default {
     app.component('Vssue', Vssue)
     app.component('Badge', Badge)
     app.component('CodePen', CodePen)
+    app.component('Rating', Rating)
   }
 }
