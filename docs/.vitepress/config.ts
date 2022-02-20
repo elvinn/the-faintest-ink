@@ -11,6 +11,11 @@ export default defineConfig({
     repo: 'elvinn/the-faintest-ink',
     docsDir: 'docs',
     docsBranch: 'master',
+    algolia: {
+      appId: 'MLPV9ICOY8',
+      apiKey: '362b3bb9e5d19d96a41f5b3abd6bc0b5',
+      indexName: 'elvinn',
+    },
     nav: [
       {
         text: '首页',
