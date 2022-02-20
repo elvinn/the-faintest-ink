@@ -181,15 +181,15 @@
     acorn "^8.0.4"
     lodash "^4.17.20"
 
-"@cloudbase/cli@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@cloudbase/cli/-/cli-1.12.0.tgz#6411fca207cd6ca1a63e387caedcd5444ed71beb"
-  integrity sha512-C+nyBW8MmXIqKYDm+rpwC2BkRw981Ld5gsIhB9BF+HgFFfLlexQUVbzaxqdcusSJsEtt7bjITOq13Ohd+UhSGA==
+"@cloudbase/cli@1.12.3":
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/@cloudbase/cli/-/cli-1.12.3.tgz#02a401a79506042231c959b64a86d788994b087a"
+  integrity sha512-qPez7HtOdc0bN+/uSZXyqCiFf42IeDuoYz4wJJAmSPmATP1go48GgSEAps6vdM3QKn7xv2eZT4Liq1x4ppK9Fg==
   dependencies:
     "@cloudbase/cloud-api" "^0.4.0"
     "@cloudbase/framework-core" "^1.6.1"
     "@cloudbase/lowcode-cli" "^0.12.2"
-    "@cloudbase/manager-node" "3.11.1-beta"
+    "@cloudbase/manager-node" "3.12.1"
     "@cloudbase/toolbox" "^0.7.2"
     "@sentry/node" "^5.10.2"
     address "^1.1.2"
@@ -430,23 +430,7 @@
     react-eva "^1.0.0"
     symlink-dir "^3.1.1"
 
-"@cloudbase/manager-node@3.11.1-beta":
-  version "3.11.1-beta"
-  resolved "https://registry.yarnpkg.com/@cloudbase/manager-node/-/manager-node-3.11.1-beta.tgz#ccf8309159c06ec82004f80e0c79573b6c019210"
-  integrity sha512-Sj+i4W0Z8RU7kGkWPvW1Zc9jZ5ss06WeyKQ2WldKO24Qei9l2DqkDytRfi9CZI8D44ClXQLg1HRRkkqMXvifmQ==
-  dependencies:
-    "@cloudbase/database" "^0.6.2"
-    archiver "^3.1.1"
-    cos-nodejs-sdk-v5 "2.9.0"
-    del "^5.1.0"
-    https-proxy-agent "^2.2.4"
-    make-dir "^3.0.0"
-    micromatch "^4.0.2"
-    node-fetch "^2.6.0"
-    query-string "^6.8.3"
-    walkdir "^0.4.1"
-
-"@cloudbase/manager-node@^3.3.1":
+"@cloudbase/manager-node@3.12.1", "@cloudbase/manager-node@^3.3.1":
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/@cloudbase/manager-node/-/manager-node-3.12.1.tgz#9a9fa9d44d165311bddd652e839c4de9e4f7d1db"
   integrity sha512-y1N9c1cdVc8PAGDqndV3y+ta621RcseG4mXtz4vbCLeMYznC8dSr4zxPf7seE2uqHfI3KBQSChztPGyTB5khbg==
