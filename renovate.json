@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ],
+  "timezone": "Asia/Hong_Kong",
+  "schedule": [
+    "every weekend"
+  ]
+}
