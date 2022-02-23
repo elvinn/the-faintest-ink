@@ -5,18 +5,21 @@
 />
 </template>
 <script>
+import { importStyle } from './tools';
+
 export default {
   props: {
     rating: {
       type: Number,
       default: 0
     },
-  }
+  },
+  beforeMount() {
+    importStyle('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+  },
 }
 </script>
 <style>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-
 .fa-star {
   padding-right: 0.2em;
 }

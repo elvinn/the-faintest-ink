@@ -5,7 +5,7 @@ import { importScript } from './tools';
 // 异步引入 CodePen 需要的 js
 export default {
   name: 'code-pen',
-  created() {
+  beforeMount() {
     importScript('https://cpwebassets.codepen.io/assets/embed/ei.js', { isAsync: true });
   }
 }
