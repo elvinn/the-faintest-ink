@@ -176,6 +176,7 @@ export default defineConfig({
         children: [
           { text: 'ESLint', link: '/frontend-util/eslint' },
           { text: 'npm', link: '/frontend-util/npm' },
+          { text: 'pnpm', link: '/frontend-util/pnpm' },
           { text: 'Git', link: '/frontend-util/git' },
           { text: '杂', link: '/frontend-util/mixed' },
         ]
