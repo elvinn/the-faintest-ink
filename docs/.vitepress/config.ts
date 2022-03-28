@@ -4,6 +4,9 @@ export default defineConfig({
   title: '烂笔头',
   description: '好记性不如烂笔头 ｜ elvinn 的个人博客',
   lang: 'zh-CN',
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     lastUpdated: '上次更新时间',
     editLinks: true,
