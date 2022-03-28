@@ -147,6 +147,7 @@ export default defineConfig({
           { text: '常用场景', link: '/typescript/situation' },
           { text: '常见问题', link: '/typescript/problems' },
           { text: '基础使用', link: '/typescript/basic' },
+          { text: '编译优化', link: '/typescript/compile-improve' },
         ]
       }],
       '/nodejs/': [{
