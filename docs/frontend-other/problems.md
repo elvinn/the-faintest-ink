@@ -17,6 +17,12 @@
 
 <right-text>2020.11.26</right-text>
 
+::: tip
+27.2.5 版本已经修复了这个问题，在 `verbose` 模式下，会立即输出日志而不是缓存起来。
+
+`[@jest/reporters] Do not buffer console.logs when using verbose reporter.`
+:::
+
 ## 微信分享链接自定义分享内容
 
 ### 问题
