@@ -22,7 +22,7 @@
     "url": "git+https://github.com/elvinn/the-faintest-ink.git"
   },
   "devDependencies": {
-    "@cloudbase/cli": "^1.12.3",
+    "@cloudbase/cli": "^2.0.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-imagemin": "^8.0.0",
