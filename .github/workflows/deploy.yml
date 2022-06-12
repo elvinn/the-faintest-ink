@@ -13,17 +13,20 @@ jobs:
 
       - name: Setup
         run: yarn install --frozen-lockfile
+      
+      - name: Install coscmd
+        run: pip install coscmd
 
-      - name: Login at Tencent Cloudbase
+      - name: Generate COS config
         env:
           apiKeyId: ${{secrets.TCB_API_KEY_ID}}
           apiKey: ${{secrets.TCB_API_KEY}}
-        run: $(npm bin)/tcb login --apiKeyId "$apiKeyId" --apiKey "$apiKey"
+        run: coscmd config -a "$apiKeyId" -s "$apiKey" -b elvinn-wiki-1251269979 -r ap-guangzhou -m 16
 
       - name: Build project
         run: yarn build
 
-      - name: Deploy to Tencent Cloudbase
+      - name: Deploy to Tencent Cloud COS
         run: yarn deploy
 
   archive:

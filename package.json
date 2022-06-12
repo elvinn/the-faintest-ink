@@ -9,7 +9,7 @@
     "serve": "vitepress serve docs --port 3001",
     "gulp": "gulp",
     "login": "tcb login",
-    "deploy": "npm run gulp && tcb hosting deploy docs/.vitepress/dist / -r gz -e elvinn-wiki-4gnjxp8xdcf6f5a5"
+    "deploy": "npm run gulp && coscmd upload -rs docs/.vitepress/dist/ /"
   },
   "keywords": [
     "note",
