@@ -191,6 +191,7 @@ export default defineConfig({
         children: [
           { text: '前端基础知识', link: '/frontend-basic/trivial.html' },
           { text: '迭代器与生成器', link: '/frontend-basic/iterator.html' },
+          { text: '奇奇怪怪', link: '/frontend-basic/mix.html' },
         ]
       }],
       '/frontend-other/': [{
