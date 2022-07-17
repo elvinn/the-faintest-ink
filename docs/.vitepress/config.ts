@@ -157,6 +157,7 @@ export default defineConfig({
         text: 'Node.js',
         children: [
           { text: '有意思的 Node.js 内存泄漏问题', link: '/nodejs/memory.html' },
+          { text: 'AsyncLocalStorage 的妙用', link: '/nodejs/async-local-storage.html' },
         ]
       }],
       '/audio-video/': [{
