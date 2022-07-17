@@ -35,6 +35,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://elvinn.wiki/nodejs/async-local-storage.html</loc>
+  <lastmod>2022-07-20T08:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://elvinn.wiki/audio-video/file-format.html</loc>
   <lastmod>2022-01-27T03:24:35+00:00</lastmod>
   <priority>0.80</priority>
@@ -177,6 +182,11 @@
 <url>
   <loc>https://elvinn.wiki/frontend-basic/iterator.html</loc>
   <lastmod>2022-01-27T03:24:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://elvinn.wiki/frontend-basic/mix.html</loc>
+  <lastmod>2022-07-17T01:20:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
