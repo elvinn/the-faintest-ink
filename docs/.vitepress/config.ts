@@ -161,6 +161,10 @@ export default defineConfig({
         text: 'TypeScript 大挑战',
         children: [
           { text: '大挑战（一）', link: '/typescript-challenge/1.html' },
+          { text: '大挑战（二）', link: '/typescript-challenge/2.html' },
+          { text: '大挑战（三）', link: '/typescript-challenge/3.html' },
+          { text: '大挑战（四）', link: '/typescript-challenge/4.html' },
+          { text: '大挑战（五）', link: '/typescript-challenge/5.html' },
         ],
       }],
       '/nodejs/': [{
