@@ -2,7 +2,7 @@
   <footer>
     <div class="copyright">Copyright © 2019-{{ currentYear }} elvinn</div>
     <div class="beian">
-      <a target="_blank" href="https://beian.miit.gov.cn/">鄂ICP备15023442号-3</a>
+      <a target="_blank" href="https://beian.miit.gov.cn/">粤ICP备2022103865号-1</a>
     </div>
   </footer>
 </template>
