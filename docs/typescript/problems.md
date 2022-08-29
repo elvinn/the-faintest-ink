@@ -1,10 +1,10 @@
 # 常见问题
 
-## never 和 void 区别
+## never 和 void 有什么区别？
 
 这两者中文都有空的意思，而且往往都用来标示函数的返回值类型，不过实际的含义差别很大。
 
-函数返回值类型为 `void` 时，表示返回值可以是 `null`（当没有开启 --strictNullChecks 编译选项）或者`undefined`（没有 `return` 语句时返回值也为 `undefined`）。
+函数返回值类型为 `void` 时，是指函数不关心返回类型，并没有限定哪种类型（一般情况下返回 `undefined`）。
 
 ```ts
 function warnUser1(): void {
@@ -26,13 +26,28 @@ function warnUser3(): void {
 
 ```ts
 function error(message: string): never {
-  throw new Error(message); 
+  throw new Error(message);
 }
 
 function infiniteLoop(): never {
   while (true) {}
 }
 
+```
+
+## undefined 和 void 有什么区别？
+
+`void` 并不是 `undefined` 的别名，而是指函数不关心返回类型，并没有限定哪种类型。
+
+``` ts
+// 箭头函数中，声明返回 void 可以返回 1
+const fn2: () => void = () => 1;
+
+// 普通函数中，声明返回 void 只能返回 undefined
+function fn1(): void {
+  // ts 报错：Type 'number' is not assignable to type 'void'
+  return 1;
+}
 ```
 
 ## Number Enum 和 String Enum 有什么区别？
