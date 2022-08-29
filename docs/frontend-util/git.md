@@ -2,7 +2,7 @@
 
 ## git diff .. vs ...
 
-```
+``` text
 o-o-X-o-o-o-o-Z master
      \
      -o-o-o-o-o-Y feature-x
@@ -27,13 +27,13 @@ o-o-X-o-o-o-o-Z master
 
 知道了这两者的区别之后，那么就可以看出在下面两种提交情况下，`..` 和 `...` 的对比结果是一样的：
 
-```
+``` text
 o-o-X master
      \
      -o-o-o-o-o-Y feature-x
 ```
 
-```
+``` text
 o-o-X-o-o-o-o-Z master
      \         \
      -o-o-o-o-o-Y feature-x
@@ -46,5 +46,11 @@ o-o-X-o-o-o-o-Z master
 根据 [官方文档](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons) 的说法，Github 采用的是三个点（`...`，Three dot）的对比方式，虽然没有说明原因，但我个人觉得主要是因为这样可以保持 Pull Request 对比文件差异的一致性，要不然假如目标分支有新的提交，就会导致得出的差异存在变化。
 
 那假如想在 Pull Request 的对比中想看两个分支最新节点的差异该怎么办呢？合并一下目标分支的最新代码即可。
+
+## git reflog 用法
+
+`reflog` 是 *reference log* 的缩写，也就是**参考日志**的含义。通过 `git reflog`，可以列出本地所有的 git 操作。
+
+常用的场景是有时候本地执行 `git reset {hash_id} --hard` 导致代码回滚，且无法通过 `git log` 找出被回滚 commit 的 id。此时可以通过 `git reflog` 列出每一步操作，从而找回丢失的代码。
 
 <Vssue title="Git" />
