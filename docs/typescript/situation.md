@@ -256,4 +256,20 @@ type valueUnion = typeof keys[number];
 1. 对字面量使用 `as const`，ts 会按最严格的类型进行推断并加上 readonly 属性，可以参考 [官方文档 - const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions)
 2. 对数组使用 typeof keys[number]，可以获取到这个数组所有元素的联合类型
 
+## 获取 enum 的 key/value 类型
+
+``` ts
+enum StringEnum {
+  Small = 'S',
+  Medium = 'M',
+  Large = 'L',
+}
+
+// 👇 type ValuesUnion = "S" | "M" | "L"
+type ValuesUnion = `${StringEnum}`;
+
+// 👇 type KeysUnion = "Small" | "Medium" | "Large"
+type KeysUnion = keyof typeof StringEnum;
+```
+
 <Vssue title="TypeScript 使用" />
