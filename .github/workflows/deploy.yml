@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Archive Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cloudbase-log
           path: ./*.log
