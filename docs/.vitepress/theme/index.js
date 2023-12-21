@@ -1,4 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
+import { inject } from '@vercel/analytics';
 
 import MyLayout from './MyLayout.vue'
 import MainFooter from '../components/MainFooter.vue'
@@ -9,6 +10,8 @@ import CodePen from '../components/CodePen.vue'
 import Rating from '../components/Rating.vue'
 
 import './custom.css'
+
+inject();
 
 export default {
   ...DefaultTheme,

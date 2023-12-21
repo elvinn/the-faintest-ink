@@ -29,6 +29,7 @@
     "vitepress": "^0.22.0"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "moment": "^2.29.1"
   }
 }
