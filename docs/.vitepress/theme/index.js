@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 import MyLayout from './MyLayout.vue'
 import MainFooter from '../components/MainFooter.vue'
@@ -12,6 +13,7 @@ import Rating from '../components/Rating.vue'
 import './custom.css'
 
 inject();
+injectSpeedInsights();
 
 export default {
   ...DefaultTheme,
