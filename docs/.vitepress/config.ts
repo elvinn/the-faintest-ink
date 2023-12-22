@@ -272,8 +272,5 @@ export default defineConfig({
       }],
     },
   },
-  head: [
-    // 百度统计脚本，https://tongji.baidu.com/
-    ['script', {}, `var _hmt = _hmt || []; window.addEventListener('DOMContentLoaded', function() {var hm = document.createElement("script"); hm.defer = true; hm.src = "https://hm.baidu.com/hm.js?52f7e9c204c79cd3e7f026f6159474b6"; document.body.appendChild(hm); })`],
-  ]
+  head: []
 });
