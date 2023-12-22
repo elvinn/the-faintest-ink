@@ -13,7 +13,7 @@ import Rating from '../components/Rating.vue'
 import './custom.css'
 
 inject();
-injectSpeedInsights();
+injectSpeedInsights({});
 
 export default {
   ...DefaultTheme,
