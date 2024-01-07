@@ -103,6 +103,10 @@ export default defineConfig({
         text: '阅读',
         items: [
           {
+            text: '2024',
+            link: '/reading/2024.html',
+          },
+          {
             text: '2023',
             link: '/reading/2023.html',
           },
