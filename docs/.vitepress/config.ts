@@ -45,10 +45,6 @@ export default defineConfig({
             link: '/typescript/situation.html',
           },
           {
-            text: 'TypeScript 大挑战',
-            link: '/typescript-challenge/1.html',
-          },
-          {
             text: 'Node.js',
             link: '/nodejs/memory.html',
           },
@@ -163,6 +159,7 @@ export default defineConfig({
           { text: '常见问题', link: '/typescript/problems.html' },
           { text: '基础使用', link: '/typescript/basic.html' },
           { text: '编译优化', link: '/typescript/compile-improve.html' },
+          { text: '大挑战', link: '/typescript/big-challenge.html' },
         ]
       }],
       '/typescript-challenge/': [{
