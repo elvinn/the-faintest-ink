@@ -202,6 +202,7 @@ export default defineConfig({
           { text: 'npm', link: '/frontend-util/npm.html' },
           { text: 'pnpm', link: '/frontend-util/pnpm.html' },
           { text: 'Git', link: '/frontend-util/git.html' },
+          { text: 'GitHub', link: '/frontend-util/github.html' },
           { text: '杂', link: '/frontend-util/mixed.html' },
         ]
       }],
