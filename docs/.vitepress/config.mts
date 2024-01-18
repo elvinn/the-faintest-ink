@@ -7,6 +7,9 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
+  sitemap: {
+    hostname: 'https://elvinn.wiki'
+  },
   themeConfig: {
     logo: { src: '/logo.png', width: 24, height: 24 },
     editLink: {
