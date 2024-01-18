@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs --port 3001",
+    "preview": "vitepress preview docs",
     "gulp": "gulp",
     "login": "tcb login",
     "deploy": "npm run gulp && coscmd upload -rs docs/.vitepress/dist/ /"
@@ -26,7 +26,7 @@
     "gulp": "^4.0.2",
     "gulp-imagemin": "^8.0.0",
     "stylus": "^0.62.0",
-    "vitepress": "^0.22.0"
+    "vitepress": "^1.0.0-rc.39"
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.1",
