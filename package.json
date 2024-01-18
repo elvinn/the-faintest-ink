@@ -6,10 +6,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
-    "gulp": "gulp",
-    "login": "tcb login",
-    "deploy": "npm run gulp && coscmd upload -rs docs/.vitepress/dist/ /"
+    "preview": "vitepress preview docs"
   },
   "keywords": [
     "note",
@@ -22,9 +19,6 @@
     "url": "git+https://github.com/elvinn/the-faintest-ink.git"
   },
   "devDependencies": {
-    "del": "^6.0.0",
-    "gulp": "^4.0.2",
-    "gulp-imagemin": "^8.0.0",
     "stylus": "^0.62.0",
     "vitepress": "^1.0.0-rc.39"
   },
