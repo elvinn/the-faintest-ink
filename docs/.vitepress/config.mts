@@ -321,4 +321,14 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/elvinn' }
     ]
   },
+  head: [
+    [
+      'script',
+      {},
+      `if (!['localhost', 'www.elvinn.wiki', 'elvinn.wiki'].includes(location.hostname)) {
+        location.href = 'https://www.elvinn.wiki';
+      }
+      `
+    ],
+  ]
 })
