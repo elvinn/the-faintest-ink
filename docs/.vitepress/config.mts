@@ -4,6 +4,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "烂笔头",
   description: "好记性不如烂笔头 ｜ Elvinn 的个人博客",
+  markdown: {
+    lineNumbers: true,
+  },
   themeConfig: {
     logo: { src: '/logo.png', width: 24, height: 24 },
     editLink: {
@@ -66,8 +69,7 @@ export default defineConfig({
         items: [
           {
             text: 'React',
-            link: '/react/problems',
-            activeMatch: '^/$|^/react/'
+            link: '/react/hooks',
           },
           {
             text: 'Vue',

@@ -102,7 +102,7 @@ int main() {
 
 它的输出是：
 
-```{2,4}
+``` txt {2,4}
 default constructor
 move constructor
 destructor

@@ -24,7 +24,7 @@ CDN 服务在这一步起到了关键作用，它会**将请求的服务器域�
 
 可以拿我自己的域名做个实验，`elivnn.cn` 开启了腾讯云 CDN 加速的功能，执行 `dig elvinn.cn` 命令进行 DNS 解析时可以获取如下的结果：
 
-```{13-15}
+``` txt {13-15}
 ; <<>> DiG 9.10.6 <<>> elvinn.cn
 ;; global options: +cmd
 ;; Got answer:
