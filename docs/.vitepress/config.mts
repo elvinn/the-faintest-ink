@@ -40,27 +40,12 @@ export default defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     search: {
-      provider: 'local',
+      provider: 'algolia',
       options: {
-        locales: {
-          zh: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                }
-              }
-            }
-          }
-        }
-      }
+        appId: 'MLPV9ICOY8',
+        apiKey: 'a3cb9357fd5c6f98c7c2c3624ebaad9d',
+        indexName: 'elvinn',
+      },
     },
     nav: [
       {
