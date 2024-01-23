@@ -32,7 +32,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2022103865号-1</a>',
+      message: '保持独立思考',
       copyright: `Copyright © 2019-${new Date().getFullYear()} Elvinn`
     },
     returnToTopLabel: '回到顶部',
