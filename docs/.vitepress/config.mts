@@ -30,9 +30,10 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
+
     footer: {
-      message: '粤ICP备2022103865号-1',
-      copyright: `copyright © 2019-${new Date().getFullYear()} Elvinn`
+      message: '<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2022103865号-1</a>',
+      copyright: `Copyright © 2019-${new Date().getFullYear()} Elvinn`
     },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
