@@ -239,6 +239,7 @@ export default defineConfig({
         text: '前端基础',
         items: [
           { text: '前端基础知识', link: '/frontend-basic/trivial' },
+          { text: '字符串', link: '/frontend-basic/string' },
           { text: '迭代器与生成器', link: '/frontend-basic/iterator' },
           { text: '奇奇怪怪', link: '/frontend-basic/mix' },
         ]

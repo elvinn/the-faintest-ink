@@ -105,13 +105,6 @@ load
 </html>
 ```
 
-## String.raw
-
-对于一些含有转义字符的字符串，例如 Windows 下的路径 `C:\Program Files (x86)\Tencent`，使用 `String.raw` 可以很方便的表示，节省转义字符 `\`：
-
-- 传统表示：'C:\\\\Program Files (x86)\\\\Tencent'
-- 模板字符串表示：String.raw\`C:\Program Files (x86)\Tencent\`
-
 ## 惰性加载函数
 
 对于前端代码而言，必须要考虑的一个问题就是兼容性，为了实现一个功能，时常需要针对不同的浏览器环境编写不同的代码。例如一个简单的事件绑定函数如下所示：
