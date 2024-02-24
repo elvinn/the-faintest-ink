@@ -18,3 +18,6 @@ console.log(Buffer.from(str, 'utf-8').length); // 字节长度: 13
 
 - 传统表示：'C:\\\\Program Files (x86)\\\\Tencent'
 - 模板字符串表示：String.raw\`C:\Program Files (x86)\Tencent\`
+
+
+<Vssue title="前端基础 - 字符串" />
