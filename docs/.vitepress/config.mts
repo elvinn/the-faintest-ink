@@ -312,7 +312,7 @@ export default defineConfig({
     [
       'script',
       {},
-      `if (!['localhost', 'www.elvinn.wiki', 'elvinn.wiki'].includes(location.hostname)) {
+      `if (!['localhost', 'www.elvinn.wiki', 'elvinn.wiki'].includes(location.hostname) && !/github.dev$/.test(location.hostname)) {
         location.href = 'https://www.elvinn.wiki';
       }
       `
