@@ -15,7 +15,7 @@ export default {
     },
   },
   beforeMount() {
-    importStyle('https://elvinn.wiki/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+    importStyle('/font-awesome-4.7.0/css/font-awesome.min.css');
   },
 }
 </script>
