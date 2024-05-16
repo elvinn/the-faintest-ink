@@ -153,4 +153,4 @@ SELECT NULL <=> NULL; -- 结果为 1
 
 参考文档：[MySQL - NULL-safe equal](https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#operator_equal-to)
 
-<Vssue title="MySQL" />
+<Vssue title="MySQL Usage" />

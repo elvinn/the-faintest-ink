@@ -270,6 +270,7 @@ export default defineConfig({
         text: 'MySQL',
         items: [
           { text: '基本使用', link: '/mysql/usage' },
+          { text: '日志文件', link: '/mysql/log' },
         ]
       }],
       '/backend-common-situation/': [{
