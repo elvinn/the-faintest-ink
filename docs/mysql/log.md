@@ -11,12 +11,12 @@
 | 慢查询日志（Slow query log）       | 记录耗时超过 [`long_query_time`](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time) 的查询语句 |
 | 二进制日志（Binary log）           | 记录修改数据的数据（写操作）                                 |
 | 接力日志（Relay log）              | 记录从主服务器同步过来的数据变更                             |
-| 数据定义日志（DDL log / meta log） | 记录创建、修改、删除表解构等操作                             |
+| 数据定义日志（DDL log / meta log） | 记录修改、删除表结构等操作                             |
 
 ## 参考文档
 
 1. [MySQL Server Logs](https://dev.mysql.com/doc/refman/8.0/en/server-logs.html)
 
-
+## 二进制日志 Binlog
 
 <Vssue title="MySQL Log" />
