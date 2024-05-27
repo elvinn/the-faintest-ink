@@ -120,8 +120,17 @@ export default defineConfig({
         ]
       },
       {
-        text: 'LeetCode',
-        link: '/leetcode/skill',
+        text: '杂',
+        items: [
+          {
+            text: '加密货币',
+            link: '/crypto-currency/beginner-guide',
+          },
+          {
+            text: 'LeetCode',
+            link: '/leetcode/skill',
+          }
+        ]
       },
       {
         text: '阅读',
