@@ -32,8 +32,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: '保持独立思考',
-      copyright: `Copyright © 2019-${new Date().getFullYear()} Elvinn`
+      message: `<a class="badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Felvinn.wiki%2F"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Felvinn.wiki%2F&labelColor=%23d9e3f0&countColor=%23697689" /></a>保持独立思考`,
+      copyright: `Copyright © 2019-${new Date().getFullYear()} Elvinn `
     },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
