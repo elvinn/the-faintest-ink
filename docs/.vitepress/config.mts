@@ -181,6 +181,7 @@ export default defineConfig({
         items: [
           { text: '基本使用', link: '/vue/usage' },
           { text: '常见实践总结', link: '/vue/situation' },
+          { text: '热更新', link: '/vue/hmr' },
         ]
       }],
       '/miniprogram/': [{
