@@ -259,6 +259,7 @@ export default defineConfig({
         items: [
           { text: '问题解决记录', link: '/frontend-other/problems' },
           { text: '客户端内嵌页面', link: '/frontend-other/native' },
+          { text: 'Tree Shaking', link: '/frontend-other/tree-shaking' },
         ]
       }],
       '/cpp/': [{
