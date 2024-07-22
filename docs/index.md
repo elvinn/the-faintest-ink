@@ -27,7 +27,7 @@ features:
   - icon: ⚒️
     title: 个人项目
     details: 分享经验和技巧，期待更多交流。
-    link: /self-project/memo.html
+    link: /self-project/date-calculator.html
     linkText: 试一试
 ---
 
