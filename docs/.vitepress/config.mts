@@ -11,7 +11,7 @@ export default defineConfig({
     hostname: "https://elvinn.wiki",
   },
   themeConfig: {
-    logo: { src: "/logo.png", width: 24, height: 24 },
+    logo: { src: "/logo.webp", width: 24, height: 24 },
     editLink: {
       pattern:
         "https://github.com/elvinn/the-faintest-ink/edit/master/docs/:path",
