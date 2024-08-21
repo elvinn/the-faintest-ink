@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "烂笔头",
+  title: "Elvinn 的个人博客",
   description: "好记性不如烂笔头 ｜ Elvinn 的个人博客",
   markdown: {
     lineNumbers: true,
@@ -394,12 +394,37 @@ export default defineConfig({
     ],
     // Google AdSense
     [
-      "script",
+      'script',
       {
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1851887590079822", //[!code focus]
         crossorigin: 'anonymous',
         async: '',
       },
+    ],
+    // Google 结构化数据，https://developers.google.com/search/docs/appearance/structured-data/profile-page?hl=zh-cn
+    [
+      'script',
+      { type: 'application/ld+json' },
+      `{
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "dateCreated": "2024-08-21T12:44:00+08:00",
+        "dateModified": "2024-08-21T12:44:00+08:00",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Elvinn",
+          "description": "95 后，现居深圳 🌴 微信支付研发工程师 🖥️"
+        },
+        "hasPart": [{
+          "@type": "Article",
+          "headline": "有意思的 Node.js 内存泄漏问题",
+          "url": "https://elvinn.wiki/nodejs/memory.html",
+          "author": [
+            { "@type": "Person" },
+            { "name" : "Elvinn" }
+          ]
+        }]
+      }`,
     ],
   ],
 });

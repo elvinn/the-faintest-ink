@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: 好记性不如烂笔头
-  text: elvinn 的个人笔记
+  text: Elvinn 的个人博客
   tagline: 95 后，现居深圳 🌴<br/>微信支付研发工程师 🖥️
   image:
     src: /logo.png
