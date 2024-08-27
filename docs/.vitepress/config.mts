@@ -396,7 +396,7 @@ export default defineConfig({
     [
       'script',
       {
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1851887590079822", //[!code focus]
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8968402652686082", //[!code focus]
         crossorigin: 'anonymous',
         async: '',
       },
