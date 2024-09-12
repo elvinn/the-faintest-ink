@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /react/hooks.html
+      link: /recent.html
 features:
   - icon: 🌐
     title: 大前端

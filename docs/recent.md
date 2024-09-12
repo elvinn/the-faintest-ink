@@ -1,0 +1,5 @@
+---
+layout: page
+---
+
+<recent-blogs />
