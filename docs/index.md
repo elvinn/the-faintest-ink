@@ -48,9 +48,4 @@ features:
     --vp-home-hero-image-filter: blur(68px);
   }
 }
-
-footer .badge img {
-  height: 28px;
-  margin: auto;
-}
 </style>

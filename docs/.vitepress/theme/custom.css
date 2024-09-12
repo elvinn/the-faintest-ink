@@ -7,3 +7,9 @@
   width: 270px;
   height: 270px;
 }
+
+footer .badge img {
+  margin-bottom: 4px !important;
+  height: 28px;
+  margin: auto;
+}
