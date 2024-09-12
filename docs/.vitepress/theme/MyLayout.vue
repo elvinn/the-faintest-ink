@@ -5,8 +5,6 @@ const { Layout } = DefaultTheme
 
 <template>
   <Layout>
-    <template #home-footer>
-      <main-footer />
-    </template>
+    <!-- 可以在此补充 https://vitepress.dev/guide/extending-default-theme#layout-slots -->
   </Layout>
 </template>
