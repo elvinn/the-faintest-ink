@@ -18,10 +18,16 @@ export default {
   data: () => ({
     blogs: [
       {
+        title: 'Date Calculator',
+        description: 'Date Calculator 是一个简单的日期计算器，能计算过去或者将来的日期距离当前时间的年、月、日，支持电脑端和移动端。',
+        href: '/self-project/date-calculator.html',
+        tags: ['个人项目'],
+      },
+      {
         title: '有意思的 Node.js 内存泄漏问题',
         description: 'Node.js 使用的是 V8 引擎，会自动进行垃圾回收（Garbage Collection，GC），因而写代码的时候不需要像 C/C++ 一样手动分配、释放内存空间，方便不少，不过仍然需要注意内存的使用，避免造成内存泄漏（Memory Leak）。',
         href: '/nodejs/memory.html',
-        tags: ['Node.js', 'CSS'],
+        tags: ['Node.js'],
       },
     ]
   }),
@@ -46,6 +52,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  .blog-card {
+    width: 100%;
+  }
 }
 
 
