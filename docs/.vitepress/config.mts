@@ -70,6 +70,10 @@ export default defineConfig({
             link: "/miniprogram/problems",
           },
           {
+            text: "CSS",
+            link: "/css/hsl",
+          },
+          {
             text: "TypeScript",
             link: "/typescript/situation",
           },
@@ -199,6 +203,14 @@ export default defineConfig({
           items: [{ text: "基本使用", link: "/miniprogram/problems" }],
         },
       ],
+      "/css/": [
+        {
+          text: 'CSS',
+          items: [
+            { text: '在 CSS 中使用 HSL', link: "/css/hsl" },
+          ]
+        }
+      ],
       "/typescript/": [
         {
           text: "TypeScript",
@@ -208,18 +220,6 @@ export default defineConfig({
             { text: "基础使用", link: "/typescript/basic" },
             { text: "编译优化", link: "/typescript/compile-improve" },
             { text: "大挑战", link: "/typescript/big-challenge" },
-          ],
-        },
-      ],
-      "/typescript-challenge/": [
-        {
-          text: "TypeScript 大挑战",
-          items: [
-            { text: "大挑战（一）", link: "/typescript-challenge/1" },
-            { text: "大挑战（二）", link: "/typescript-challenge/2" },
-            { text: "大挑战（三）", link: "/typescript-challenge/3" },
-            { text: "大挑战（四）", link: "/typescript-challenge/4" },
-            { text: "大挑战（五）", link: "/typescript-challenge/5" },
           ],
         },
       ],
