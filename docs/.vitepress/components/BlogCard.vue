@@ -64,6 +64,7 @@ export default {
   .description {
     color: var(--vp-c-text-2);
     margin-top: 18px;
+    white-space: pre-line;
   }
 
   .link-text {

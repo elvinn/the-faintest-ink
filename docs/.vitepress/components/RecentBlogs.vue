@@ -18,6 +18,13 @@ export default {
   data: () => ({
     blogs: [
       {
+        title: '在 CSS 中使用 HSL',
+        description: '本文将介绍 HSL 颜色的概念、使用方法，以及一些实用案例。\n根据我的观察，大多数人在 CSS 中仍然习惯使用十六进制或 RGB 格式的颜色值。虽然最近 HSL 格式的使用有所增加，但我认为它的潜力还远未被充分挖掘。接下来我将展示 HSL 如何帮助我们更好地处理 CSS 中的颜色',
+        href: '/css/hsl.html',
+        tags: ['CSS'],
+      }
+      ,
+      {
         title: 'Date Calculator',
         description: 'Date Calculator 是一个简单的日期计算器，能计算过去或者将来的日期距离当前时间的年、月、日，支持电脑端和移动端。',
         href: '/self-project/date-calculator.html',
