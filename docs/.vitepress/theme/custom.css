@@ -13,3 +13,27 @@ footer .badge img {
   height: 28px;
   margin: auto;
 }
+
+/* 图片居中 */
+.VPDoc img {
+  cursor: pointer;
+  margin: 0 auto;
+
+  /* 边框 */
+  border: 1px solid #333;
+
+  /* 圆角 */
+  border-radius: 8px;
+
+  /* 阴影 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* 过渡效果，使变化更加平滑 */
+  transition: all 0.3s ease-in-out;
+}
+
+/* 图片居中鼠标悬停效果 */
+.VPDoc img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

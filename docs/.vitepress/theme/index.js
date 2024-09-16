@@ -2,6 +2,11 @@ import DefaultTheme from 'vitepress/theme'
 import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights'
 
+import 'viewerjs/dist/viewer.min.css';
+import imageViewer from 'vitepress-plugin-image-viewer';
+import vImageViewer from 'vitepress-plugin-image-viewer/lib/vImageViewer.vue';
+import { useRoute } from 'vitepress';
+
 import MyLayout from './MyLayout.vue'
 import RightText from '../components/RightText.vue'
 import Vssue from '../components/Vssue.vue'
@@ -27,5 +32,13 @@ export default {
     app.component('Rating', Rating)
     app.component('BlogCard', BlogCard)
     app.component('RecentBlogs', RecentBlogs)
+    app.component('vImageViewer', vImageViewer);
+  },
+
+  setup() {
+    // Get route
+    const route = useRoute();
+    // Using
+    imageViewer(route);
   }
 }

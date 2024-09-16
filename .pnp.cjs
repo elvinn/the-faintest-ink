@@ -32,7 +32,9 @@ const RAW_RUNTIME_STATE =
           ["less", "npm:4.2.0"],\
           ["moment", "npm:2.30.1"],\
           ["stylus", "npm:0.62.0"],\
+          ["viewerjs", "npm:1.11.6"],\
           ["vitepress", "virtual:1b90bb218eab92f418ade3605a737ef03a1fc7d236c5d36761f2f07f2f3356746a80c7582440fb507a03f3324551a8c1fab9dd6b3380ff8f4f6204b89967a63f#npm:1.3.4"],\
+          ["vitepress-plugin-image-viewer", "npm:1.1.5"],\
           ["vue", "virtual:1b90bb218eab92f418ade3605a737ef03a1fc7d236c5d36761f2f07f2f3356746a80c7582440fb507a03f3324551a8c1fab9dd6b3380ff8f4f6204b89967a63f#npm:3.5.4"]\
         ],\
         "linkType": "SOFT"\
@@ -2954,7 +2956,9 @@ const RAW_RUNTIME_STATE =
           ["less", "npm:4.2.0"],\
           ["moment", "npm:2.30.1"],\
           ["stylus", "npm:0.62.0"],\
+          ["viewerjs", "npm:1.11.6"],\
           ["vitepress", "virtual:1b90bb218eab92f418ade3605a737ef03a1fc7d236c5d36761f2f07f2f3356746a80c7582440fb507a03f3324551a8c1fab9dd6b3380ff8f4f6204b89967a63f#npm:1.3.4"],\
+          ["vitepress-plugin-image-viewer", "npm:1.1.5"],\
           ["vue", "virtual:1b90bb218eab92f418ade3605a737ef03a1fc7d236c5d36761f2f07f2f3356746a80c7582440fb507a03f3324551a8c1fab9dd6b3380ff8f4f6204b89967a63f#npm:3.5.4"]\
         ],\
         "linkType": "SOFT"\
@@ -3082,6 +3086,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["viewerjs", [\
+      ["npm:1.11.6", {\
+        "packageLocation": "../../.yarn/berry/cache/viewerjs-npm-1.11.6-539bfe08f3-10c0.zip/node_modules/viewerjs/",\
+        "packageDependencies": [\
+          ["viewerjs", "npm:1.11.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["vite", [\
       ["npm:5.4.4", {\
         "packageLocation": "../../.yarn/berry/cache/vite-npm-5.4.4-274ee22b4e-10c0.zip/node_modules/vite/",\
@@ -3172,6 +3185,16 @@ const RAW_RUNTIME_STATE =
           "@types/postcss",\
           "markdown-it-mathjax3",\
           "postcss"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["vitepress-plugin-image-viewer", [\
+      ["npm:1.1.5", {\
+        "packageLocation": "../../.yarn/berry/cache/vitepress-plugin-image-viewer-npm-1.1.5-93bbf24667-10c0.zip/node_modules/vitepress-plugin-image-viewer/",\
+        "packageDependencies": [\
+          ["vitepress-plugin-image-viewer", "npm:1.1.5"],\
+          ["viewerjs", "npm:1.11.6"]\
         ],\
         "linkType": "HARD"\
       }]\
