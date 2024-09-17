@@ -23,6 +23,7 @@ export default defineConfig({
     },
     outline: {
       label: "页面导航",
+      level: [2, 3],
     },
     lastUpdated: {
       text: "最后更新于",
@@ -53,6 +54,10 @@ export default defineConfig({
       {
         text: "首页",
         link: "/",
+      },
+      {
+        text: "最近更新",
+        link: "/recent",
       },
       {
         text: "大前端",
@@ -165,6 +170,10 @@ export default defineConfig({
       {
         text: "个人项目",
         items: [
+          {
+            text: "个人简介生成器",
+            link: "/self-project/bio",
+          },
           {
             text: "date calculator",
             link: "/self-project/date-calculator",
@@ -358,6 +367,7 @@ export default defineConfig({
         {
           text: "个人项目",
           items: [
+            { text: "个人简介生成器", link: "/self-project/bio" },
             { text: "Date Calculator", link: "/self-project/date-calculator" },
             { text: "memo", link: "/self-project/memo" },
             { text: "Oauth 登录", link: "/self-project/oauth" },
