@@ -191,6 +191,7 @@ export default defineConfig({
           text: "React",
           items: [
             { text: "Hook", link: "/react/hooks" },
+            { text: "通用场景", link: "/react/situations" },
             { text: "常见问题", link: "/react/problems" },
             { text: "升级变化", link: "/react/version-update" },
           ],
