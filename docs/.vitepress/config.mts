@@ -146,6 +146,10 @@ export default defineConfig({
         text: "阅读",
         items: [
           {
+            text: "2025",
+            link: "/reading/2025",
+          },
+          {
             text: "2024",
             link: "/reading/2024",
           },
@@ -356,6 +360,7 @@ export default defineConfig({
         {
           text: "阅读",
           items: [
+            { text: "2025 阅读记录", link: "/reading/2025" },
             { text: "2024 阅读记录", link: "/reading/2024" },
             { text: "2023 阅读记录", link: "/reading/2023" },
             { text: "2022 阅读记录", link: "/reading/2022" },
