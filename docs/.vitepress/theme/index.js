@@ -15,6 +15,7 @@ import CodePen from '../components/CodePen.vue'
 import Rating from '../components/Rating.vue'
 import BlogCard from '../components/BlogCard.vue'
 import RecentBlogs from '../components/RecentBlogs.vue'
+import BoxBackgroundDemo from '../components/demos/BoxBackgroundDemo.vue'
 
 import './custom.css'
 
@@ -33,6 +34,9 @@ export default {
     app.component('BlogCard', BlogCard)
     app.component('RecentBlogs', RecentBlogs)
     app.component('vImageViewer', vImageViewer);
+
+    // demos
+    app.component('BoxBackgroundDemo', BoxBackgroundDemo);
   },
 
   setup() {
