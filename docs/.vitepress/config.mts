@@ -76,7 +76,7 @@ export default defineConfig({
           },
           {
             text: "CSS",
-            link: "/css/hsl",
+            link: "/css/box-background",
           },
           {
             text: "TypeScript",
@@ -221,8 +221,8 @@ export default defineConfig({
         {
           text: 'CSS',
           items: [
-            { text: '在 CSS 中使用 HSL', link: "/css/hsl" },
             { text: '重复格子背景', link: "/css/box-background" },
+            { text: '在 CSS 中使用 HSL', link: "/css/hsl" },
           ]
         }
       ],
