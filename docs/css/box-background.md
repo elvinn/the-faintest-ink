@@ -15,7 +15,7 @@
 
 [relay.app](https://www.relay.app/) 使用的就是这种方法，这应该是最常见也是最容易想到的方法，就是先准备一张格子图片，例如：
 
-![格子图片](./public/box-item.svg)
+![格子图片](/css/box-item.svg)
 
 然后通过 `background` 相关属性进行设置即可，关键在于：
 

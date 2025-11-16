@@ -70,7 +70,7 @@ export default {
     boxStyle() {
       if (this.implementation === 'svg') {
         return {
-          '--bg-image': 'url(/css/public/box-item.svg)',
+          '--bg-image': 'url(/css/box-item.svg)',
           '--bg-size': `${this.backgroundSize}px auto`,
           '--bg-opacity': 0.3,
           '--bg-transform': 'none'
