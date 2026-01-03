@@ -16,6 +16,7 @@ import Rating from '../components/Rating.vue'
 import BlogCard from '../components/BlogCard.vue'
 import RecentBlogs from '../components/RecentBlogs.vue'
 import BoxBackgroundDemo from '../components/demos/BoxBackgroundDemo.vue'
+import ReadingCard from '../components/ReadingCard.vue'
 
 import './custom.css'
 
@@ -34,6 +35,7 @@ export default {
     app.component('BlogCard', BlogCard)
     app.component('RecentBlogs', RecentBlogs)
     app.component('vImageViewer', vImageViewer);
+    app.component('ReadingCard', ReadingCard);
 
     // demos
     app.component('BoxBackgroundDemo', BoxBackgroundDemo);

@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
+const hostname = "https://elvinn.wiki";
 export default defineConfig({
   title: "Elvinn 的个人博客",
   description: "好记性不如烂笔头 ｜ Elvinn 的个人博客",
@@ -8,7 +9,7 @@ export default defineConfig({
     lineNumbers: true,
   },
   sitemap: {
-    hostname: "https://elvinn.wiki",
+    hostname: hostname,
   },
   themeConfig: {
     logo: { src: "/logo.webp", width: 24, height: 24 },
@@ -32,7 +33,6 @@ export default defineConfig({
         timeStyle: "medium",
       },
     },
-
     footer: {
       message: `<a class="badge" href="https://visitorbadge.io/status?path=https%3A%2F%2Felvinn.wiki%2F"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Felvinn.wiki%2F&labelColor=%23d9e3f0&countColor=%23697689" /></a>保持独立思考`,
       copyright: `Copyright © 2019-${new Date().getFullYear()} Elvinn `,
@@ -145,6 +145,10 @@ export default defineConfig({
       {
         text: "阅读",
         items: [
+          {
+            text: "2026",
+            link: "/reading/2026/index",
+          },
           {
             text: "2025",
             link: "/reading/2025",
@@ -361,6 +365,7 @@ export default defineConfig({
         {
           text: "阅读",
           items: [
+            { text: "2026 阅读记录", link: "/reading/2026/index" },
             { text: "2025 阅读记录", link: "/reading/2025" },
             { text: "2024 阅读记录", link: "/reading/2024" },
             { text: "2023 阅读记录", link: "/reading/2023" },
@@ -389,7 +394,7 @@ export default defineConfig({
       "script",
       {},
       `if (!['localhost', 'www.elvinn.wiki', 'elvinn.wiki'].includes(location.hostname) && !/github.dev$/.test(location.hostname)) {
-        location.href = 'https://www.elvinn.wiki';
+        location.href = '${hostname}';
       }
       `,
     ],
@@ -418,30 +423,46 @@ export default defineConfig({
         async: '',
       },
     ],
-    // Google 结构化数据，https://developers.google.com/search/docs/appearance/structured-data/profile-page?hl=zh-cn
-    [
-      'script',
-      { type: 'application/ld+json' },
-      `{
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "dateCreated": "2024-08-21T12:44:00+08:00",
-        "dateModified": "2024-08-21T12:44:00+08:00",
-        "mainEntity": {
-          "@type": "Person",
-          "name": "Elvinn",
-          "description": "95 后，现居深圳 🌴 微信支付研发工程师 🖥️"
-        },
-        "hasPart": [{
-          "@type": "Article",
-          "headline": "有意思的 Node.js 内存泄漏问题",
-          "url": "https://elvinn.wiki/nodejs/memory.html",
-          "author": [
-            { "@type": "Person" },
-            { "name" : "Elvinn" }
-          ]
-        }]
-      }`,
-    ],
   ],
+  transformHead: (params) => {
+    const { pageData } = params
+    const { frontmatter, relativePath } = pageData
+
+    // 基础 JSON-LD 对象
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": 'BlogPosting',
+      "headline": frontmatter.title || pageData.title,
+      "url": `${hostname}/${relativePath.replace(/\.md$/, '.html')}`,
+      "datePublished": frontmatter.date,
+      "author": { "@type": "Person", "name": "Elvinn", "url": hostname },
+      "description": frontmatter.description,
+    }
+
+    if (frontmatter.category === 'book') {
+      // 书评特有字段
+      Object.assign(schema, {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "Book",
+          "name": frontmatter.book,
+          "author": { "@type": "Person", "name": frontmatter.author }
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": frontmatter.rating,
+          "bestRating": 5
+        },
+      })
+    }
+
+    return [
+      [
+        'script',
+        { type: 'application/ld+json' },
+        // 使用 JSON.stringify 并在输出时不做二次转义的处理
+        JSON.stringify(schema)
+      ]
+    ]
+  }
 });
