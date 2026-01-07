@@ -60,7 +60,7 @@ async function main() {
 ```
 
 ::: tip
-由于 Open AI 接口已经成为了事实上的行业标准，所以像字节豆包、Kimi 等 AI 模型提供的接口兼容 Open AI 的接口协议，所以也可以通过 OpenAI Node API Library 进行调用，只需要将 `process.env.OPENAI_BASE_URL` 设置成对应的模型接口地址即可，例如调用字节豆包的 AI 模型时设置成 https://ark.cn-beijing.volces.com/api/v3/ 即可。
+由于 Open AI 接口已经成为了事实上的行业标准，所以像字节豆包、Kimi 等 AI 模型提供的接口兼容 Open AI 的接口协议，所以也可以通过 OpenAI Node API Library 进行调用，只需要将 `process.env.OPENAI_BASE_URL` 设置成对应的模型接口地址即可，例如调用字节豆包的 AI 模型时设置成 `https://ark.cn-beijing.volces.com/api/v3/` 即可。
 :::
 
 我一开始也是使用的 `openai` 这个 npm 包，但是后来发现 [Vercel AI SDK](https://www.npmjs.com/package/ai) 更加方便，它能很便捷地处理 AI 的流式响应，其中主要涉及：

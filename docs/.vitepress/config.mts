@@ -88,7 +88,7 @@ export default defineConfig({
           },
           {
             text: "音视频",
-            link: "/audio-video/file-forma",
+            link: "/audio-video/file-format",
           },
           {
             text: "网络",

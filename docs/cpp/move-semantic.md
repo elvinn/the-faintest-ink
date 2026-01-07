@@ -115,9 +115,8 @@ destructor
 
 这里需要关注一下 Test 的移动构造函数中 `t.arr = nullptr;` 这行代码，它通过将临时对象中的 `arr` 置空，从而避免了临时对象在析构时释放这块内存，影响复制得到的对象。
 
-还有 `完美转发（Perfect Forward）` / `通用引用（Universal Reference）` 等相关的内容可以深究，下面这两篇文章很不错，强烈推荐：
+还有 `完美转发（Perfect Forward）` / `通用引用（Universal Reference）` 等相关的内容可以深究，下面这篇文章很不错，强烈推荐：
 
-1. [移动语义（move semantic）和完美转发（perfect forward）](https://codinfox.github.io/dev/2014/06/03/move-semantic-perfect-forward/)
-2. [C++移动语义及拷贝优化](https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/index.html)
+1. [C++移动语义及拷贝优化](https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/index.html)
 
 <Vssue title="C++ 移动语义" />
