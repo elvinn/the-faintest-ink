@@ -60,6 +60,10 @@ export default defineConfig({
         link: "/recent",
       },
       {
+        text: "友链",
+        link: "/friends",
+      },
+      {
         text: "大前端",
         items: [
           {
