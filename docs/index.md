@@ -22,12 +22,12 @@ features:
   - icon: 📚
     title: 读书笔记
     details: 记录心得体会，让阅读更有收获。
-    link: /reading/2024.html
+    link: /reading/2026.html
     linkText: 瞧一瞧
   - icon: ⚒️
     title: 个人项目
     details: 分享经验和技巧，期待更多交流。
-    link: /self-project/date-calculator.html
+    link: /self-project/bio.html
     linkText: 试一试
 ---
 
